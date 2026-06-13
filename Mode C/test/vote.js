@@ -43,13 +43,13 @@ const WITNESS_DIR = path.join(__dirname, "../data/tmp_witness");
 const MODE = "C";
 
 const ELECTION_ID = "ELC2026";
-const NUM_CANDIDATES = 2;
-const NUM_SELECTIONS = 1;
-const VOTES_TO_SIMULATE = 10;
+const NUM_CANDIDATES = parseInt(process.env.DEMO_Q) || 2;
+const NUM_SELECTIONS = parseInt(process.env.DEMO_S) || 1;
+const VOTES_TO_SIMULATE = parseInt(process.env.DEMO_N) || 10;
 const VOTE_BATCH_SIZE = 2000;
 
-const TOTAL_TRUSTEES = 7;
-const THRESHOLD = 4;
+const TOTAL_TRUSTEES = parseInt(process.env.DEMO_TRUSTEES) || 7;
+const THRESHOLD = parseInt(process.env.DEMO_THRESHOLD) || 4;
 
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {

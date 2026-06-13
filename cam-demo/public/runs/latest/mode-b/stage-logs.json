@@ -1,0 +1,248 @@
+[
+  {
+    "stage": "compile",
+    "type": "stderr",
+    "message": "ERROR: Missing file: circuits\\powersOfTau28_hez_final_17.ptau",
+    "timestamp": "2026-06-13T04:11:05.039Z"
+  },
+  {
+    "stage": "compile",
+    "type": "warn",
+    "message": "circom v2 not available; using pre-compiled circuit (q=10, tvTrustees=2). Install circom v2 to use any q/threshold.",
+    "timestamp": "2026-06-13T04:11:05.110Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Nothing to compile",
+    "timestamp": "2026-06-13T04:11:06.488Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "PartialDecryptionVerifier: 0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "VoteProofCombinedVerifier: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "E_Voting: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "TallyVerifier: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployment file: D:\\KLTN\\full\\Mode B\\data\\deployments.json",
+    "timestamp": "2026-06-13T04:11:09.042Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] N=10 depth=10",
+    "timestamp": "2026-06-13T04:11:09.981Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] root=45274055134735590922... done.",
+    "timestamp": "2026-06-13T04:11:09.981Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Setup completed.",
+    "timestamp": "2026-06-13T04:11:13.081Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Merkle root published for 10 voters.",
+    "timestamp": "2026-06-13T04:11:13.081Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Aggregator: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "timestamp": "2026-06-13T04:11:13.081Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Trustees registered: 3",
+    "timestamp": "2026-06-13T04:11:13.081Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average end-to-end time: 3875.49 ms",
+    "timestamp": "2026-06-13T04:11:55.542Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average witness time: 483.92 ms",
+    "timestamp": "2026-06-13T04:11:55.542Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average proof generation time: 2893.02 ms",
+    "timestamp": "2026-06-13T04:11:55.542Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Voting finished. Submitted: 10, Failed: 0",
+    "timestamp": "2026-06-13T04:11:55.542Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Valid votes: 10/10",
+    "timestamp": "2026-06-13T04:11:58.804Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Total aggregation time: 774.54 ms",
+    "timestamp": "2026-06-13T04:11:58.804Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Aggregation published: 0x6f9423a6d5ad40ff87152a03fad43ee1202cc33bd3b28717ba649c8e4d92ccb1",
+    "timestamp": "2026-06-13T04:12:01.297Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Generating proof for Admin (Trustee 3)",
+    "timestamp": "2026-06-13T04:12:11.238Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Partial decryption time for Admin (Trustee 3): 6385.01 ms",
+    "timestamp": "2026-06-13T04:12:11.238Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Generating proof for Trustee 1",
+    "timestamp": "2026-06-13T04:12:11.238Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Partial decryption time for Trustee 1: 6982.17 ms",
+    "timestamp": "2026-06-13T04:12:11.238Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Threshold count: 2",
+    "timestamp": "2026-06-13T04:12:11.238Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Tally time: 8441.93 ms",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Final results: [",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 1, votes: 2 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 2, votes: 1 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 3, votes: 3 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 4, votes: 3 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 5, votes: 0 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 6, votes: 2 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 7, votes: 2 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 8, votes: 0 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 9, votes: 3 },",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "{ candidateId: 10, votes: 4 }",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "]",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Results revealed on-chain.",
+    "timestamp": "2026-06-13T04:12:22.406Z"
+  }
+]

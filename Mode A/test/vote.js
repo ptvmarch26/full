@@ -43,9 +43,9 @@ const WITNESS_DIR = path.join(__dirname, "../data/tmp_witness");
 const MODE = "A";
 
 const ELECTION_ID = "ELC2026";
-const NUM_CANDIDATES = 2;
-const NUM_SELECTIONS = 1;
-const VOTES_TO_SIMULATE = 10;
+const NUM_CANDIDATES = parseInt(process.env.DEMO_Q) || 10;
+const NUM_SELECTIONS = parseInt(process.env.DEMO_S) || 1;
+const VOTES_TO_SIMULATE = parseInt(process.env.DEMO_N) || 10;
 const VOTE_BATCH_SIZE = 2000;
 
 function ensureDir(dirPath) {
@@ -253,6 +253,7 @@ function createVoteSubmitter(votingContract, vKey) {
 }
 
 async function main() {
+  console.log(`[vote.js] NUM_CANDIDATES=${NUM_CANDIDATES} NUM_SELECTIONS=${NUM_SELECTIONS} VOTES_TO_SIMULATE=${VOTES_TO_SIMULATE}`);
   if (!fs.existsSync(DKG_PUBLIC_KEY_PATH)) {
     throw new Error("public_key.json not found. Run register.js first.");
   }
@@ -414,6 +415,7 @@ async function main() {
       } catch (error) {
         failedCount++;
         console.error(`Vote ${i + 1} failed: ${error.message}`);
+        if (failedCount === 1) console.error(`Vote 1 stack: ${error.stack}`);
       }
     }
   } finally {

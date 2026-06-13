@@ -1,0 +1,290 @@
+[
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Error: Parse error on line 1:",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "pragma circom 2.1.5;\r\rinclude \"./",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "---------------^",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Parser.parseError (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:620:21)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Parser.parse (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:687:22)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at constructionPhase (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\construction_phase.js:79:22)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at compile (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\compiler.js:71:5)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at run (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:119:11)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Object.<anonymous> (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:140:1)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._compile (node:internal/modules/cjs/loader:1469:14)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module.load (node:internal/modules/cjs/loader:1288:32)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._load (node:internal/modules/cjs/loader:1104:12)",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Parse error on line 1:",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "pragma circom 2.1.5;\r\rinclude \"./",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "---------------^",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stderr",
+    "message": "ERROR: Command failed: circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
+    "timestamp": "2026-06-13T04:08:25.416Z"
+  },
+  {
+    "stage": "compile",
+    "type": "warn",
+    "message": "circom v2 not available; using pre-compiled circuit (q=2, tvTrustees=2). Install circom v2 to use any q/threshold.",
+    "timestamp": "2026-06-13T04:08:25.434Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Nothing to compile",
+    "timestamp": "2026-06-13T04:08:27.051Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "timestamp": "2026-06-13T04:08:30.056Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "E_Voting: 0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "timestamp": "2026-06-13T04:08:30.056Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "TallyVerifierOnChain: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "timestamp": "2026-06-13T04:08:30.056Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployment file: D:\\KLTN\\full\\Mode A\\data\\deployments.json",
+    "timestamp": "2026-06-13T04:08:30.056Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] N=10 depth=20",
+    "timestamp": "2026-06-13T04:08:31.017Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] root=18503671904316769160... done.",
+    "timestamp": "2026-06-13T04:08:31.017Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Setup completed.",
+    "timestamp": "2026-06-13T04:08:34.141Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Merkle root published for 10 voters.",
+    "timestamp": "2026-06-13T04:08:34.141Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Aggregator: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "timestamp": "2026-06-13T04:08:34.141Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Trustees registered: 3",
+    "timestamp": "2026-06-13T04:08:34.141Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] NUM_CANDIDATES=2 NUM_SELECTIONS=2 VOTES_TO_SIMULATE=10",
+    "timestamp": "2026-06-13T04:08:56.109Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average end-to-end time: 1816.17 ms",
+    "timestamp": "2026-06-13T04:08:56.109Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average witness time: 205.88 ms",
+    "timestamp": "2026-06-13T04:08:56.109Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average proof generation time: 1414.17 ms",
+    "timestamp": "2026-06-13T04:08:56.109Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Voting finished. Submitted: 10, Failed: 0",
+    "timestamp": "2026-06-13T04:08:56.109Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Valid votes: 10/10",
+    "timestamp": "2026-06-13T04:08:59.588Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Total aggregation time: 841.44 ms",
+    "timestamp": "2026-06-13T04:08:59.588Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Aggregation published: 0xe069f942b110a81938dea465e4c89d8d94a777185ef7e5c7ce74d1a2403ddeec",
+    "timestamp": "2026-06-13T04:09:02.181Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Generating proof for Admin (Trustee 3)",
+    "timestamp": "2026-06-13T04:09:12.641Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Partial decryption time for Admin (Trustee 3): 7043.96 ms",
+    "timestamp": "2026-06-13T04:09:12.641Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Generating proof for Trustee 1",
+    "timestamp": "2026-06-13T04:09:12.641Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Partial decryption time for Trustee 1: 7619.30 ms",
+    "timestamp": "2026-06-13T04:09:12.641Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Threshold count: 2",
+    "timestamp": "2026-06-13T04:09:12.641Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Tally time: 7268.57 ms",
+    "timestamp": "2026-06-13T04:09:22.753Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Final results: [ { candidateId: 1, votes: 10 }, { candidateId: 2, votes: 10 } ]",
+    "timestamp": "2026-06-13T04:09:22.753Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Results revealed on-chain.",
+    "timestamp": "2026-06-13T04:09:22.753Z"
+  }
+]

@@ -39,9 +39,9 @@ const WITNESS_DIR = path.join(__dirname, "../data/tmp_witness");
 const MODE = "B";
 
 const ELECTION_ID = "ELC2026";
-const NUM_CANDIDATES = 10;
-const NUM_SELECTIONS = 2;
-const VOTES_TO_SIMULATE = 10;
+const NUM_CANDIDATES = parseInt(process.env.DEMO_Q) || 10;
+const NUM_SELECTIONS = parseInt(process.env.DEMO_S) || 2;
+const VOTES_TO_SIMULATE = parseInt(process.env.DEMO_N) || 10;
 const VOTE_BATCH_SIZE = 2000;
 
 function ensureDir(dirPath) {

@@ -1,0 +1,170 @@
+[
+  {
+    "stage": "compile",
+    "type": "stderr",
+    "message": "ERROR: Missing file: circuits\\powersOfTau28_hez_final_17.ptau",
+    "timestamp": "2026-06-13T04:00:09.572Z"
+  },
+  {
+    "stage": "compile",
+    "type": "warn",
+    "message": "circom v2 not available; using pre-compiled circuit (q=2, tvTrustees=4). Install circom v2 to use any q/threshold.",
+    "timestamp": "2026-06-13T04:00:09.598Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "PartialDecryptionVerifier: 0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "VoteProofCombinedVerifier: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "E_Voting: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "TallyVerifier: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "setup",
+    "type": "stdout",
+    "message": "Deployment file: D:\\KLTN\\full\\Mode C\\data\\deployments.json",
+    "timestamp": "2026-06-13T04:00:12.467Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] N=99 depth=10",
+    "timestamp": "2026-06-13T04:00:15.086Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "[gen_demo_voters] root=13821955693191944923... done.",
+    "timestamp": "2026-06-13T04:00:15.086Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Setup completed.",
+    "timestamp": "2026-06-13T04:00:18.680Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Merkle root published for 99 voters.",
+    "timestamp": "2026-06-13T04:00:18.680Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Aggregator: 0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+    "timestamp": "2026-06-13T04:00:18.680Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Trustees registered: 5",
+    "timestamp": "2026-06-13T04:00:18.680Z"
+  },
+  {
+    "stage": "registration",
+    "type": "stdout",
+    "message": "Threshold: 4/5",
+    "timestamp": "2026-06-13T04:00:18.680Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average end-to-end time: 1398.50 ms",
+    "timestamp": "2026-06-13T04:02:41.394Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average witness time: 242.67 ms",
+    "timestamp": "2026-06-13T04:02:41.394Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average proof generation time: 921.07 ms",
+    "timestamp": "2026-06-13T04:02:41.394Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Voting finished. Submitted: 99, Failed: 0",
+    "timestamp": "2026-06-13T04:02:41.394Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Valid votes: 99/99",
+    "timestamp": "2026-06-13T04:02:44.816Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stdout",
+    "message": "Total aggregation time: 809.06 ms",
+    "timestamp": "2026-06-13T04:02:44.816Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "Publish aggregation failed: ProviderError: Error: VM Exception while processing transaction: reverted with reason string 'Not authorized (aggregator only)'",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at HttpProvider.request (D:\\KLTN\\full\\Mode C\\node_modules\\hardhat\\src\\internal\\core\\providers\\http.ts:116:21)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at processTicksAndRejections (node:internal/process/task_queues:95:5)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at HardhatEthersSigner.sendTransaction (D:\\KLTN\\full\\Mode C\\node_modules\\@nomicfoundation\\hardhat-ethers\\src\\signers.ts:185:18)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at send (D:\\KLTN\\full\\Mode C\\node_modules\\ethers\\src.ts\\contract\\contract.ts:313:20)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at Proxy.publishAllCipherTotals (D:\\KLTN\\full\\Mode C\\node_modules\\ethers\\src.ts\\contract\\contract.ts:352:16)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  },
+  {
+    "stage": "aggregation",
+    "type": "stderr",
+    "message": "at main (D:\\KLTN\\full\\Mode C\\test\\aggregate.js:39:14)",
+    "timestamp": "2026-06-13T04:02:47.239Z"
+  }
+]

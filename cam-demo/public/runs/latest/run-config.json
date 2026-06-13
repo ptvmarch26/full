@@ -1,0 +1,13 @@
+{
+  "n": 10,
+  "q": 10,
+  "s": 2,
+  "modes": "B",
+  "VS": "Small",
+  "batd": "Authority-constrained",
+  "oc": "Moderate",
+  "threshold": {
+    "trusteeCount": 3,
+    "approvalThreshold": 2
+  }
+}

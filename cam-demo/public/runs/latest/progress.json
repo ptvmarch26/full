@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "currentMode": null,
+  "modes": {
+    "B": {
+      "status": "completed",
+      "currentStage": null,
+      "detail": "21.1s",
+      "stageStartedAt": "2026-06-13T04:12:01.297Z",
+      "hasCompile": true
+    }
+  },
+  "updatedAt": "2026-06-13T04:12:23.962Z"
+}

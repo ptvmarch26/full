@@ -1,0 +1,114 @@
+{
+  "runId": "run-1781323943958",
+  "createdAt": "2026-06-13T04:12:23.958Z",
+  "config": {
+    "n": 10,
+    "q": 10,
+    "s": 2,
+    "VS": "Small",
+    "threshold": {
+      "trusteeCount": 3,
+      "approvalThreshold": 2
+    }
+  },
+  "modes": {
+    "B": {
+      "status": "completed",
+      "pipeline": {
+        "totalDurationMs": 77461,
+        "startedAt": "2026-06-13T04:11:04.950Z",
+        "finishedAt": "2026-06-13T04:12:22.411Z"
+      },
+      "stages": [
+        {
+          "key": "compile",
+          "label": "Circuit Compilation",
+          "script": "circom.js + hardhat compile",
+          "status": "completed",
+          "durationMs": 1552,
+          "error": null
+        },
+        {
+          "key": "setup",
+          "label": "Setup",
+          "script": "deploy.js",
+          "status": "completed",
+          "durationMs": 2553,
+          "error": null
+        },
+        {
+          "key": "prepare_voters",
+          "label": "Generate Voter Data",
+          "script": "gen_demo_voters.cjs",
+          "status": "completed",
+          "durationMs": 936,
+          "error": null
+        },
+        {
+          "key": "registration",
+          "label": "Registration",
+          "script": "register.js",
+          "status": "completed",
+          "durationMs": 3099,
+          "error": null
+        },
+        {
+          "key": "vote",
+          "label": "Ballot Validation & Commitment",
+          "script": "vote.js",
+          "status": "completed",
+          "durationMs": 42459,
+          "error": null
+        },
+        {
+          "key": "aggregation",
+          "label": "Aggregation",
+          "script": "prepare_aggregation.js + aggregate.js",
+          "status": "completed",
+          "durationMs": 5754,
+          "error": null
+        },
+        {
+          "key": "tally",
+          "label": "Tallying & Result Revelation",
+          "script": "partial.js + tally.js",
+          "status": "completed",
+          "durationMs": 21108,
+          "error": null
+        }
+      ],
+      "metrics": {
+        "BVC": {
+          "averageGasPerAcceptedBallot": 261833,
+          "totalGasUsed": 2618328,
+          "submittedBallots": 10,
+          "acceptedBallots": 10,
+          "failedBallots": 0
+        },
+        "OAL": {
+          "averageEndToEndMs": 3875.49,
+          "averageWitnessMs": 483.92,
+          "averageProofMs": 2893.02
+        }
+      },
+      "results": {
+        "finalCounts": [],
+        "revealedOnChain": false
+      }
+    }
+  },
+  "recommendation": {
+    "feasibleModes": [
+      "B",
+      "C"
+    ],
+    "eliminatedModes": [
+      {
+        "mode": "A",
+        "reason": "BATD = Authority-constrained eliminates Mode A"
+      }
+    ],
+    "recommended": "C",
+    "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+  }
+}

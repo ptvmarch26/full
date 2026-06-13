@@ -17,10 +17,10 @@ const DKG_FOLDER = path.join(__dirname, "../data/dkgKeys");
 const ELECTION_ID = "ELC2026";
 const ELECTION_NAME = "Demo Election";
 const ELECTION_DURATION = 7 * 24 * 3600;
-const NUM_CANDIDATES = 2;
+const NUM_CANDIDATES = parseInt(process.env.DEMO_Q) || 2;
 
-const TOTAL_TRUSTEES = 7;
-const THRESHOLD = 4;
+const TOTAL_TRUSTEES = parseInt(process.env.DEMO_TRUSTEES) || 7;
+const THRESHOLD = parseInt(process.env.DEMO_THRESHOLD) || 4;
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });

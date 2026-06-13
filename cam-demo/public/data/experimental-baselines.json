@@ -1,0 +1,50 @@
+{
+  "bvcPerBallot": {
+    "A": 53987,
+    "B": 261924,
+    "C": 83855
+  },
+  "sc": {
+    "A": 18,
+    "B": 18,
+    "C": 24
+  },
+  "zc": {
+    "circuits": [
+      {
+        "name": "VoteProofCombined",
+        "constraints": 39893,
+        "totalStorageMB": 52.8,
+        "totalTimeSec": 61.253
+      },
+      {
+        "name": "PartialDecryption",
+        "constraints": 3331,
+        "totalStorageMB": 3.492,
+        "totalTimeSec": 9.07
+      },
+      {
+        "name": "TallyValidity",
+        "constraints": 51201,
+        "totalStorageMB": 47.412,
+        "totalTimeSec": 44.71
+      }
+    ]
+  },
+  "scenarios": [
+    { "id": "S1", "n": 256,   "q": 2,  "s": 1, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S2", "n": 5000,  "q": 2,  "s": 1, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S3", "n": 10000, "q": 2,  "s": 1, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S4", "n": 1000,  "q": 4,  "s": 1, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S5", "n": 1000,  "q": 8,  "s": 1, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S6", "n": 1000,  "q": 10, "s": 2, "modes": ["A","B","C"], "threshold": null },
+    { "id": "S7", "n": 1000,  "q": 2,  "s": 1, "modes": ["C"],         "threshold": "2/3" },
+    { "id": "S8", "n": 1000,  "q": 2,  "s": 1, "modes": ["C"],         "threshold": "3/5" },
+    { "id": "S9", "n": 1000,  "q": 2,  "s": 1, "modes": ["C"],         "threshold": "4/7" }
+  ],
+  "oalBaseline": {
+    "A": 1200,
+    "B": 1250,
+    "C": 1450
+  }
+}
