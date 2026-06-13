@@ -310,12 +310,11 @@ async function main() {
   let totalWitnessTime = 0;
   let totalProofTime = 0;
 
+  const totalToRun = Math.min(VOTES_TO_SIMULATE, eligibleVoters.length);
+  console.log(`Starting vote submission: ${totalToRun} votes total`);
+
   try {
-    for (
-      let i = 0;
-      i < Math.min(VOTES_TO_SIMULATE, eligibleVoters.length);
-      i++
-    ) {
+    for (let i = 0; i < totalToRun; i++) {
       const voterSecret = eligibleVoters[i];
       const voterRecord = voterMap.get(String(voterSecret.hashed_key));
       const selectedChoices = pickRandomChoices(NUM_CANDIDATES, NUM_SELECTIONS);
@@ -412,9 +411,11 @@ async function main() {
         } else {
           failedCount++;
         }
+        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
       } catch (error) {
         failedCount++;
         console.error(`Vote ${i + 1} failed: ${error.message}`);
+        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
       }
     }
   } finally {

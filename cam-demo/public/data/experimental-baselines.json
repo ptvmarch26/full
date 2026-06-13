@@ -10,26 +10,16 @@
     "C": 24
   },
   "zc": {
-    "circuits": [
-      {
-        "name": "VoteProofCombined",
-        "constraints": 39893,
-        "totalStorageMB": 52.8,
-        "totalTimeSec": 61.253
-      },
-      {
-        "name": "PartialDecryption",
-        "constraints": 3331,
-        "totalStorageMB": 3.492,
-        "totalTimeSec": 9.07
-      },
-      {
-        "name": "TallyValidity",
-        "constraints": 51201,
-        "totalStorageMB": 47.412,
-        "totalTimeSec": 44.71
-      }
-    ]
+    "circuits": {
+      "VoteProofCombined":  { "constraints": 39893, "totalStorageMB": 52.8,  "totalTimeSec": 61.253 },
+      "PartialDecryption":  { "constraints": 3331,  "totalStorageMB": 3.492, "totalTimeSec": 9.07  },
+      "TallyValidity":      { "constraints": 51201, "totalStorageMB": 47.412,"totalTimeSec": 44.71  }
+    },
+    "byMode": {
+      "A": ["VoteProofCombined", "TallyValidity"],
+      "B": ["VoteProofCombined", "TallyValidity"],
+      "C": ["VoteProofCombined", "PartialDecryption", "TallyValidity"]
+    }
   },
   "scenarios": [
     { "id": "S1", "n": 256,   "q": 2,  "s": 1, "modes": ["A","B","C"], "threshold": null },

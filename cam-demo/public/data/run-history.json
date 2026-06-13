@@ -1,0 +1,362 @@
+[
+  {
+    "runId": "run-1781338952495",
+    "createdAt": "2026-06-13T08:22:32.495Z",
+    "config": {
+      "n": 10,
+      "q": 10,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 3,
+        "approvalThreshold": 2
+      }
+    },
+    "modesData": {
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53914,
+            "totalGasUsed": 539138,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1371.69,
+            "averageWitnessMs": 119.57,
+            "averageProofMs": 1052.75
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 10,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 10,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "B": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 261838,
+            "totalGasUsed": 2618376,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 3693.2,
+            "averageWitnessMs": 453.39,
+            "averageProofMs": 2769.03
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 3,
+              "percentage": 15
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 2,
+              "percentage": 10
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 5,
+              "percentage": 25
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 2,
+              "percentage": 10
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 2,
+              "percentage": 10
+            },
+            {
+              "candidateId": 6,
+              "candidateName": "Candidate 6",
+              "votes": 0,
+              "percentage": 0
+            },
+            {
+              "candidateId": 7,
+              "candidateName": "Candidate 7",
+              "votes": 1,
+              "percentage": 5
+            },
+            {
+              "candidateId": 8,
+              "candidateName": "Candidate 8",
+              "votes": 2,
+              "percentage": 10
+            },
+            {
+              "candidateId": 9,
+              "candidateName": "Candidate 9",
+              "votes": 1,
+              "percentage": 5
+            },
+            {
+              "candidateId": 10,
+              "candidateName": "Candidate 10",
+              "votes": 2,
+              "percentage": 10
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "C": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 103113,
+            "totalGasUsed": 1031129,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1752.03,
+            "averageWitnessMs": 152.38,
+            "averageProofMs": 1329.57
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 10,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 10,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 103,113 gas, OAL: 1752 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781339586292",
+    "createdAt": "2026-06-13T08:33:06.292Z",
+    "config": {
+      "n": 20,
+      "q": 10,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53910,
+            "totalGasUsed": 1078204,
+            "submittedBallots": 20,
+            "acceptedBallots": 20,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1218.96,
+            "averageWitnessMs": 170.4,
+            "averageProofMs": 927.7
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 20,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 20,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "B": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 261832,
+            "totalGasUsed": 5236632,
+            "submittedBallots": 20,
+            "acceptedBallots": 20,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 3658.03,
+            "averageWitnessMs": 595.89,
+            "averageProofMs": 2526.84
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 3,
+              "percentage": 7.5
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 8,
+              "percentage": 20
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 4,
+              "percentage": 10
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 2,
+              "percentage": 5
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 3,
+              "percentage": 7.5
+            },
+            {
+              "candidateId": 6,
+              "candidateName": "Candidate 6",
+              "votes": 2,
+              "percentage": 5
+            },
+            {
+              "candidateId": 7,
+              "candidateName": "Candidate 7",
+              "votes": 3,
+              "percentage": 7.5
+            },
+            {
+              "candidateId": 8,
+              "candidateName": "Candidate 8",
+              "votes": 4,
+              "percentage": 10
+            },
+            {
+              "candidateId": 9,
+              "candidateName": "Candidate 9",
+              "votes": 5,
+              "percentage": 12.5
+            },
+            {
+              "candidateId": 10,
+              "candidateName": "Candidate 10",
+              "votes": 6,
+              "percentage": 15
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "C": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 103106,
+            "totalGasUsed": 2062129,
+            "submittedBallots": 20,
+            "acceptedBallots": 20,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1638.85,
+            "averageWitnessMs": 237.9,
+            "averageProofMs": 1143.21
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 20,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 20,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 103,106 gas, OAL: 1639 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  }
+]

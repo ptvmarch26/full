@@ -53,6 +53,7 @@ function ModeColumn({ mode, modeProgress, totalDurationMs, now }) {
   const currentStage = modeProgress?.currentStage ?? null
   const stageStartedAt = modeProgress?.stageStartedAt ?? null
   const hasCompile = modeProgress?.hasCompile ?? false
+  const detail = modeProgress?.detail ?? null
 
   // Only show compile stage row if this mode actually runs/ran it
   const visibleStages = STAGES.filter(s => s.key !== 'compile' || hasCompile || currentStage === 'compile')
@@ -88,9 +89,14 @@ function ModeColumn({ mode, modeProgress, totalDurationMs, now }) {
         {status === 'idle'      && <span className="text-slate-400">Waiting</span>}
         {status === 'pending'   && <span className="text-slate-400">Waiting</span>}
         {status === 'running'   && (
-          <span className="text-blue-600">
-            Running… {currentStage && <span className="text-slate-500">({currentStage})</span>}
-          </span>
+          <div className="space-y-0.5">
+            <span className="text-blue-600">
+              Running… {currentStage && <span className="text-slate-500">({currentStage})</span>}
+            </span>
+            {detail && currentStage === 'vote' && (
+              <div className="text-slate-500 font-mono">{detail}</div>
+            )}
+          </div>
         )}
         {status === 'completed' && (
           <span className="text-green-600">✓ Done{totalDurationMs ? ` — ${fmtDuration(totalDurationMs)}` : ''}</span>
@@ -104,9 +110,9 @@ function ModeColumn({ mode, modeProgress, totalDurationMs, now }) {
 
 export default function ModeProgressPanel({ progress, comparison }) {
   const [now, setNow] = useState(Date.now())
-  const modes = ['A', 'B', 'C']
+  const modes = progress?.modes ? Object.keys(progress.modes) : []
   const anyRunning = modes.some(m => progress?.modes?.[m]?.status === 'running')
-  const allDone = modes.every(m => progress?.modes?.[m]?.status === 'completed')
+  const allDone = modes.length > 0 && modes.every(m => progress?.modes?.[m]?.status === 'completed')
 
   // Tick every second while any mode is running to update elapsed timers
   useEffect(() => {

@@ -1,7 +1,8 @@
 export default function SecondaryMeasurements({ baselines, config, recommended }) {
-  const circuits = baselines?.zc?.circuits ?? []
-  const sc = baselines?.sc ?? {}
-  const threshold = config?.threshold
+  const circuitDefs  = baselines?.zc?.circuits ?? {}
+  const zcByMode     = baselines?.zc?.byMode ?? {}
+  const sc           = baselines?.sc ?? {}
+  const threshold    = config?.threshold
   const thresholdStr = threshold ? `${threshold.approvalThreshold}/${threshold.trusteeCount}` : null
   const BASELINE_THRESHOLDS = ['2/3','3/5','4/7']
   const isBaselineThreshold = BASELINE_THRESHOLDS.includes(thresholdStr)
@@ -62,27 +63,37 @@ export default function SecondaryMeasurements({ baselines, config, recommended }
         {/* ZC */}
         <div className="bg-white rounded-xl border border-slate-200 p-4 col-span-2">
           <div className="text-xs font-semibold text-slate-600 uppercase tracking-wide mb-3">ZC — Circuit-level Workload</div>
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="text-slate-500 border-b border-slate-100">
-                <th className="text-left pb-2">Circuit</th>
-                <th className="text-right pb-2">Constraints</th>
-                <th className="text-right pb-2">Storage (MB)</th>
-                <th className="text-right pb-2">Setup Time (s)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {circuits.map(c => (
-                <tr key={c.name} className="border-b border-slate-50">
-                  <td className="py-1.5 font-mono text-slate-700">{c.name}</td>
-                  <td className="py-1.5 text-right text-slate-600">{c.constraints.toLocaleString()}</td>
-                  <td className="py-1.5 text-right text-slate-600">{c.totalStorageMB}</td>
-                  <td className="py-1.5 text-right text-slate-600">{c.totalTimeSec}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="text-xs text-slate-400 mt-2">ZC is circuit-level workload, common across modes. Does not directly decide mode selection.</p>
+          <div className="grid grid-cols-3 gap-3">
+            {['A', 'B', 'C'].map(m => {
+              const modeCircuits = (zcByMode[m] ?? []).map(name => ({ name, ...(circuitDefs[name] ?? {}) }))
+              const totalConstraints = modeCircuits.reduce((s, c) => s + (c.constraints ?? 0), 0)
+              return (
+                <div key={m} className={`rounded-lg border p-3 ${
+                  recommended === m ? 'border-blue-200 bg-blue-50' : 'border-slate-100 bg-slate-50'
+                }`}>
+                  <div className="text-xs font-semibold text-slate-600 mb-2">
+                    Mode {m}
+                    <span className="ml-2 font-normal text-slate-400">{totalConstraints.toLocaleString()} constraints total</span>
+                  </div>
+                  <table className="w-full text-xs">
+                    <tbody>
+                      {modeCircuits.map(c => (
+                        <tr key={c.name} className="border-b border-slate-100 last:border-0">
+                          <td className="py-1 font-mono text-slate-600 text-xs">{c.name}</td>
+                          <td className="py-1 text-right text-slate-500 tabular-nums">{(c.constraints ?? 0).toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="mt-2 text-xs text-slate-400">
+                    {modeCircuits.reduce((s, c) => s + (c.totalStorageMB ?? 0), 0).toFixed(1)} MB &nbsp;·&nbsp;
+                    {modeCircuits.reduce((s, c) => s + (c.totalTimeSec ?? 0), 0).toFixed(1)}s setup
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <p className="text-xs text-slate-400 mt-3">ZC measures the ZK proof setup workload per mode. Higher constraints = heavier computation.</p>
         </div>
 
         {/* MSG */}

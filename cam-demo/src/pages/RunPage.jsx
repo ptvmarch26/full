@@ -20,6 +20,7 @@ const SAMPLE_CONFIG = {
 
 const BATD_OPTIONS = ['Authority-reliant', 'Authority-constrained', 'Publicly verifiable']
 const OC_OPTIONS   = ['Minimal', 'Moderate', 'Advanced']
+const TERMINAL_STATUSES = ['completed', 'error', 'stopped']
 
 function validate(cfg) {
   const errs = {}
@@ -62,9 +63,8 @@ export default function RunPage() {
         if (pTime < (runStartedRef.current ?? 0)) return
         setProgress(p)
         const runModes = Object.keys(p.modes ?? {})
-        const allDone = runModes.length > 0 && runModes.every(m => p.modes[m]?.status === 'completed')
-        const anyError = runModes.some(m => p.modes[m]?.status === 'error')
-        if (p.status === 'completed' || allDone || anyError) {
+        const allTerminal = runModes.length > 0 && runModes.every(m => TERMINAL_STATUSES.includes(p.modes[m]?.status))
+        if (p.status === 'completed' || allTerminal) {
           clearInterval(pollRef.current)
           setRunning(false)
           const cmp = await loadComparison()
@@ -150,7 +150,7 @@ export default function RunPage() {
 
   const runningModes = progress?.modes ? Object.keys(progress.modes) : []
   const allDone = progress?.status === 'completed' ||
-    (runningModes.length > 0 && runningModes.every(m => progress.modes[m]?.status === 'completed'))
+    (runningModes.length > 0 && runningModes.every(m => TERMINAL_STATUSES.includes(progress?.modes?.[m]?.status)))
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -195,13 +195,13 @@ export default function RunPage() {
 
           {/* Simulation constraints info */}
           <div className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 space-y-1">
-            <p className="text-xs text-slate-600 font-medium">Simulation constraints (pre-compiled circuits)</p>
+            <p className="text-xs text-slate-600 font-medium">Simulation constraints (pre-compiled circuits, circom v2 not installed)</p>
             <div className="flex flex-wrap gap-x-6 gap-y-0.5">
-              <span className="text-xs font-mono text-slate-600">Mode A: q=10, n≤1,000,000</span>
+              <span className="text-xs font-mono text-slate-600">Mode A: q=2, n≤1,000,000</span>
               <span className="text-xs font-mono text-slate-600">Mode B: q=10, n≤1,000</span>
               <span className="text-xs font-mono text-slate-600">Mode C: q=2, n≤1,000</span>
             </div>
-            <p className="text-xs text-slate-400">q/s inputs are for dashboard analysis only. Simulation always uses circuit-compiled q per mode.</p>
+            <p className="text-xs text-slate-400">q/s inputs are for dashboard analysis only. With q=2 circuit: each ballot selects s candidates from 2, so if s≥2 all voters pick both candidates.</p>
           </div>
 
           <Field label="Modes to run" error={errors.modes}>
@@ -321,7 +321,7 @@ export default function RunPage() {
           </div>
         )}
 
-        {/* Results — shown after simulation completes */}
+        {/* Results — shown only after a run completes in this session */}
         {allDone && comparison && (
           <>
             {/* Stage Results */}
@@ -390,7 +390,7 @@ export default function RunPage() {
             {/* Stage Logs */}
             <div className="bg-white rounded-xl border border-slate-200 p-5 space-y-3">
               <h2 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">Stage Logs</h2>
-              <StageLogs />
+              <StageLogs runningModes={runningModes} />
             </div>
 
             <div className="flex justify-end">

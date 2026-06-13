@@ -23,3 +23,7 @@ export async function loadStageLogs(mode) {
 export async function loadBaselines() {
   return loadJson('/data/experimental-baselines.json')
 }
+
+export async function loadRunHistory() {
+  return loadJson('/data/run-history.json')
+}

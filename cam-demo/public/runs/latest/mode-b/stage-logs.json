@@ -1,248 +1,548 @@
 [
   {
     "stage": "compile",
+    "type": "stdout",
+    "message": "$ circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
+    "timestamp": "2026-06-13T08:29:41.998Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Error: Parse error on line 1:",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "pragma circom 2.1.5;\r\rinclude \"./",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "---------------^",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Parser.parseError (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:620:21)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Parser.parse (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:687:22)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at constructionPhase (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\construction_phase.js:79:22)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at compile (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\compiler.js:71:5)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at run (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:119:11)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Object.<anonymous> (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:140:1)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._compile (node:internal/modules/cjs/loader:1469:14)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module.load (node:internal/modules/cjs/loader:1288:32)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "at Module._load (node:internal/modules/cjs/loader:1104:12)",
+    "timestamp": "2026-06-13T08:29:42.158Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Parse error on line 1:",
+    "timestamp": "2026-06-13T08:29:42.159Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "pragma circom 2.1.5;\r\rinclude \"./",
+    "timestamp": "2026-06-13T08:29:42.159Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "---------------^",
+    "timestamp": "2026-06-13T08:29:42.160Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
+    "timestamp": "2026-06-13T08:29:42.160Z"
+  },
+  {
+    "stage": "compile",
     "type": "stderr",
-    "message": "ERROR: Missing file: circuits\\powersOfTau28_hez_final_17.ptau",
-    "timestamp": "2026-06-13T04:11:05.039Z"
+    "message": "ERROR: Command failed: circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
+    "timestamp": "2026-06-13T08:29:42.168Z"
   },
   {
     "stage": "compile",
     "type": "warn",
     "message": "circom v2 not available; using pre-compiled circuit (q=10, tvTrustees=2). Install circom v2 to use any q/threshold.",
-    "timestamp": "2026-06-13T04:11:05.110Z"
+    "timestamp": "2026-06-13T08:29:42.316Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
     "message": "Nothing to compile",
-    "timestamp": "2026-06-13T04:11:06.488Z"
+    "timestamp": "2026-06-13T08:29:43.777Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.499Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "PartialDecryptionVerifier: 0x5FbDB2315678afecb367f032d93F642f64180aa3",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.652Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "VoteProofCombinedVerifier: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.652Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "E_Voting: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.652Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "TallyVerifier: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.652Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "Deployment file: D:\\KLTN\\full\\Mode B\\data\\deployments.json",
-    "timestamp": "2026-06-13T04:11:09.042Z"
+    "timestamp": "2026-06-13T08:29:46.652Z"
   },
   {
     "stage": "prepare_voters",
     "type": "stdout",
-    "message": "[gen_demo_voters] N=10 depth=10",
-    "timestamp": "2026-06-13T04:11:09.981Z"
+    "message": "[gen_demo_voters] N=20 depth=10",
+    "timestamp": "2026-06-13T08:29:47.041Z"
   },
   {
     "stage": "prepare_voters",
     "type": "stdout",
-    "message": "[gen_demo_voters] root=45274055134735590922... done.",
-    "timestamp": "2026-06-13T04:11:09.981Z"
+    "message": "[gen_demo_voters] root=16808384249458201520... done.",
+    "timestamp": "2026-06-13T08:29:47.870Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Setup completed.",
-    "timestamp": "2026-06-13T04:11:13.081Z"
+    "timestamp": "2026-06-13T08:29:51.250Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
-    "message": "Merkle root published for 10 voters.",
-    "timestamp": "2026-06-13T04:11:13.081Z"
+    "message": "Merkle root published for 20 voters.",
+    "timestamp": "2026-06-13T08:29:51.250Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Aggregator: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
-    "timestamp": "2026-06-13T04:11:13.081Z"
+    "timestamp": "2026-06-13T08:29:51.250Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Trustees registered: 3",
-    "timestamp": "2026-06-13T04:11:13.081Z"
+    "timestamp": "2026-06-13T08:29:51.250Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average end-to-end time: 3875.49 ms",
-    "timestamp": "2026-06-13T04:11:55.542Z"
+    "message": "Starting vote submission: 20 votes total",
+    "timestamp": "2026-06-13T08:29:54.611Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average witness time: 483.92 ms",
-    "timestamp": "2026-06-13T04:11:55.542Z"
+    "message": "Vote 1/20: accepted=1, failed=0",
+    "timestamp": "2026-06-13T08:30:01.531Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average proof generation time: 2893.02 ms",
-    "timestamp": "2026-06-13T04:11:55.542Z"
+    "message": "Vote 2/20: accepted=2, failed=0",
+    "timestamp": "2026-06-13T08:30:05.266Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Voting finished. Submitted: 10, Failed: 0",
-    "timestamp": "2026-06-13T04:11:55.542Z"
+    "message": "Vote 3/20: accepted=3, failed=0",
+    "timestamp": "2026-06-13T08:30:08.964Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 4/20: accepted=4, failed=0",
+    "timestamp": "2026-06-13T08:30:12.520Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 5/20: accepted=5, failed=0",
+    "timestamp": "2026-06-13T08:30:16.155Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 6/20: accepted=6, failed=0",
+    "timestamp": "2026-06-13T08:30:19.632Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 7/20: accepted=7, failed=0",
+    "timestamp": "2026-06-13T08:30:23.429Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 8/20: accepted=8, failed=0",
+    "timestamp": "2026-06-13T08:30:27.127Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 9/20: accepted=9, failed=0",
+    "timestamp": "2026-06-13T08:30:31.014Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 10/20: accepted=10, failed=0",
+    "timestamp": "2026-06-13T08:30:34.657Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 11/20: accepted=11, failed=0",
+    "timestamp": "2026-06-13T08:30:38.213Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 12/20: accepted=12, failed=0",
+    "timestamp": "2026-06-13T08:30:41.873Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 13/20: accepted=13, failed=0",
+    "timestamp": "2026-06-13T08:30:45.528Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 14/20: accepted=14, failed=0",
+    "timestamp": "2026-06-13T08:30:48.928Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 15/20: accepted=15, failed=0",
+    "timestamp": "2026-06-13T08:30:52.660Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 16/20: accepted=16, failed=0",
+    "timestamp": "2026-06-13T08:30:56.427Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 17/20: accepted=17, failed=0",
+    "timestamp": "2026-06-13T08:31:00.120Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 18/20: accepted=18, failed=0",
+    "timestamp": "2026-06-13T08:31:03.705Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 19/20: accepted=19, failed=0",
+    "timestamp": "2026-06-13T08:31:05.948Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 20/20: accepted=20, failed=0",
+    "timestamp": "2026-06-13T08:31:07.801Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average end-to-end time: 3658.03 ms",
+    "timestamp": "2026-06-13T08:31:07.804Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average witness time: 595.89 ms",
+    "timestamp": "2026-06-13T08:31:07.804Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average proof generation time: 2526.84 ms",
+    "timestamp": "2026-06-13T08:31:07.804Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Voting finished. Submitted: 20, Failed: 0",
+    "timestamp": "2026-06-13T08:31:07.804Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Valid votes: 10/10",
-    "timestamp": "2026-06-13T04:11:58.804Z"
+    "message": "Valid votes: 20/20",
+    "timestamp": "2026-06-13T08:31:11.462Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Total aggregation time: 774.54 ms",
-    "timestamp": "2026-06-13T04:11:58.804Z"
+    "message": "Total aggregation time: 843.63 ms",
+    "timestamp": "2026-06-13T08:31:11.462Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Aggregation published: 0x6f9423a6d5ad40ff87152a03fad43ee1202cc33bd3b28717ba649c8e4d92ccb1",
-    "timestamp": "2026-06-13T04:12:01.297Z"
+    "message": "Aggregation published: 0xc05540d6e9ccb42b84c1f0ab4b707a788b0cbd5c0614c3ac2850f58afe4d6208",
+    "timestamp": "2026-06-13T08:31:14.144Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Generating proof for Admin (Trustee 3)",
-    "timestamp": "2026-06-13T04:12:11.238Z"
+    "timestamp": "2026-06-13T08:31:17.562Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Partial decryption time for Admin (Trustee 3): 6385.01 ms",
-    "timestamp": "2026-06-13T04:12:11.238Z"
+    "message": "Partial decryption time for Admin (Trustee 3): 5384.54 ms",
+    "timestamp": "2026-06-13T08:31:22.302Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Generating proof for Trustee 1",
-    "timestamp": "2026-06-13T04:12:11.238Z"
+    "timestamp": "2026-06-13T08:31:22.433Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Partial decryption time for Trustee 1: 6982.17 ms",
-    "timestamp": "2026-06-13T04:12:11.238Z"
+    "message": "Partial decryption time for Trustee 1: 5767.87 ms",
+    "timestamp": "2026-06-13T08:31:22.685Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Threshold count: 2",
-    "timestamp": "2026-06-13T04:12:11.238Z"
+    "timestamp": "2026-06-13T08:31:22.687Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Tally time: 8441.93 ms",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "Tally time: 10366.72 ms",
+    "timestamp": "2026-06-13T08:31:35.977Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Final results: [",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 1, votes: 2 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 1, votes: 3 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 2, votes: 1 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 2, votes: 8 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 3, votes: 3 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 3, votes: 4 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 4, votes: 3 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 4, votes: 2 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 5, votes: 0 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 5, votes: 3 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "{ candidateId: 6, votes: 2 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 7, votes: 2 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 7, votes: 3 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 8, votes: 0 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 8, votes: 4 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 9, votes: 3 },",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 9, votes: 5 },",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "{ candidateId: 10, votes: 4 }",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "message": "{ candidateId: 10, votes: 6 }",
+    "timestamp": "2026-06-13T08:31:35.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "]",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 1: 3 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 2: 8 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 3: 4 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 4: 2 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 5: 3 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 6: 2 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 7: 3 votes",
+    "timestamp": "2026-06-13T08:31:35.980Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 8: 4 votes",
+    "timestamp": "2026-06-13T08:31:35.981Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 9: 5 votes",
+    "timestamp": "2026-06-13T08:31:35.981Z"
+  },
+  {
+    "stage": "tally",
+    "type": "stdout",
+    "message": "Candidate 10: 6 votes",
+    "timestamp": "2026-06-13T08:31:35.981Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Results revealed on-chain.",
-    "timestamp": "2026-06-13T04:12:22.406Z"
+    "timestamp": "2026-06-13T08:31:35.993Z"
   }
 ]

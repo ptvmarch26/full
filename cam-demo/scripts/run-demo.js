@@ -133,22 +133,47 @@ async function waitForPort(port, timeoutMs = 30000) {
 // ---------------------------------------------------------------------------
 // Process helpers
 // ---------------------------------------------------------------------------
-function runHardhatScript(scriptPath, modeDir, env = {}) {
-  const result = spawnSync(
-    'npx', ['hardhat', 'run', scriptPath, '--network', 'localhost'],
-    {
-      cwd: modeDir,
-      encoding: 'utf8',
-      shell: true,
-      env: { ...process.env, ...env },
-      timeout: 300000,
-    }
-  )
-  return {
-    ok: result.status === 0,
-    stdout: result.stdout ?? '',
-    stderr: result.stderr ?? '',
-  }
+function runHardhatScript(scriptPath, modeDir, env = {}, onLine = null) {
+  return new Promise((resolve) => {
+    const proc = spawn(
+      'npx', ['hardhat', 'run', scriptPath, '--network', 'localhost'],
+      {
+        cwd: modeDir,
+        shell: true,
+        env: { ...process.env, ...env },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      }
+    )
+
+    let stdout = ''
+    let stderr = ''
+
+    proc.stdout.on('data', (data) => {
+      const text = data.toString()
+      stdout += text
+      text.split('\n').filter(l => l.trim()).forEach(line => onLine?.('stdout', line.trim()))
+    })
+
+    proc.stderr.on('data', (data) => {
+      const text = data.toString()
+      text.split('\n').filter(l => l.trim()).forEach(line => {
+        if (!line.includes('DeprecationWarning') && !line.includes('ExperimentalWarning')) {
+          stderr += line + '\n'
+          onLine?.('stderr', line.trim())
+        }
+      })
+    })
+
+    const killTimer = setTimeout(() => { try { proc.kill() } catch {} }, 300000)
+    proc.on('close', (code) => {
+      clearTimeout(killTimer)
+      resolve({ ok: code === 0, stdout, stderr })
+    })
+    proc.on('error', (err) => {
+      clearTimeout(killTimer)
+      resolve({ ok: false, stdout, stderr: err.message })
+    })
+  })
 }
 
 // ---------------------------------------------------------------------------
@@ -301,15 +326,44 @@ function patchCircomMain(circomPath, newMain) {
   fs.writeFileSync(circomPath, content, 'utf8')
 }
 
-function runNodeScript(scriptArgs, cwd) {
-  const result = spawnSync('node', scriptArgs, {
-    cwd,
-    encoding: 'utf8',
-    shell: true,
-    env: { ...process.env },
-    timeout: 900000, // 15 min — compilation can be slow
+function runNodeScript(scriptArgs, cwd, onLine = null) {
+  return new Promise((resolve) => {
+    const proc = spawn('node', scriptArgs, {
+      cwd,
+      shell: false,
+      env: { ...process.env },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    })
+
+    let stdout = ''
+    let stderr = ''
+
+    proc.stdout.on('data', (data) => {
+      const text = data.toString()
+      stdout += text
+      text.split('\n').filter(l => l.trim()).forEach(line => onLine?.('stdout', line.trim()))
+    })
+
+    proc.stderr.on('data', (data) => {
+      const text = data.toString()
+      text.split('\n').filter(l => l.trim()).forEach(line => {
+        if (!line.includes('DeprecationWarning') && !line.includes('ExperimentalWarning')) {
+          stderr += line + '\n'
+          onLine?.('stderr', line.trim())
+        }
+      })
+    })
+
+    const killTimer = setTimeout(() => { try { proc.kill() } catch {} }, 900000)
+    proc.on('close', (code) => {
+      clearTimeout(killTimer)
+      resolve({ ok: code === 0, stdout, stderr })
+    })
+    proc.on('error', (err) => {
+      clearTimeout(killTimer)
+      resolve({ ok: false, stdout, stderr: err.message })
+    })
   })
-  return { ok: result.status === 0, stdout: result.stdout ?? '', stderr: result.stderr ?? '' }
 }
 
 // ---------------------------------------------------------------------------
@@ -420,19 +474,13 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
       patchCircomMain(tvPath, neededTV)
 
       console.log(`[Mode ${mode}] Compiling VoteProofCombined + TallyValidity...`)
-      const { ok, stdout, stderr } = runNodeScript(
+      const { ok } = await runNodeScript(
         ['scripts/circom.js', 'VoteProofCombined', 'TallyValidity'],
-        modeDir
-      )
-
-      stdout.split('\n').filter(Boolean).forEach(msg => {
-        stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-      })
-      stderr.split('\n').filter(Boolean).forEach(msg => {
-        if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning')) {
-          stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
+        modeDir,
+        (type, msg) => {
+          stageLogs.push({ stage: stage.key, type, message: msg, timestamp: new Date().toISOString() })
         }
-      })
+      )
 
       if (!ok) {
         stageOk = false
@@ -448,32 +496,31 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
         }
 
         console.log(`[Mode ${mode}] Running ${scriptPath}...`)
-        const { ok, stdout, stderr } = runHardhatScript(scriptPath, modeDir, env)
+        let scriptStdout = ''
+        const { ok } = await runHardhatScript(scriptPath, modeDir, env, (type, msg) => {
+          stageLogs.push({ stage: stage.key, type, message: msg, timestamp: new Date().toISOString() })
+          if (type === 'stdout') scriptStdout += msg + '\n'
 
-        // Capture logs
-        stdout.split('\n').filter(Boolean).forEach(msg => {
-          stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-        })
-        if (stderr) {
-          stderr.split('\n').filter(Boolean).forEach(msg => {
-            if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning')) {
-              stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
+          // Real-time vote progress
+          if (stage.key === 'vote' && type === 'stdout') {
+            const m = msg.match(/^Vote (\d+)\/(\d+):/)
+            if (m) {
+              mp.detail = `Vote ${m[1]}/${m[2]}`
+              updateProgress(allModeProgress, mode)
             }
-          })
-        }
+          }
+        })
 
         if (!ok) {
           stageOk = false
           stageError = `Script ${scriptPath} failed.`
           console.error(`[Mode ${mode}] FAILED: ${scriptPath}`)
-          console.error(`[Mode ${mode}] Error output:`)
-          console.error(stderr || stdout)
           break
         }
 
         // Extract tally results
         if (scriptPath.includes('tally.js')) {
-          finalCounts = extractFinalCounts(stdout)
+          finalCounts = extractFinalCounts(scriptStdout)
         }
       }
     }
@@ -716,6 +763,38 @@ async function main() {
     recommendation: rec,
   }
   writeJson(path.join(PUBLIC_OUT, 'comparison.json'), comparison)
+
+  // Append lean entry to run history (keyed by n/q/s; newest wins)
+  const HISTORY_PATH = path.join(ROOT, 'public', 'data', 'run-history.json')
+  let history = []
+  try { history = JSON.parse(fs.readFileSync(HISTORY_PATH, 'utf8')) } catch {}
+  const histEntry = {
+    runId: comparison.runId,
+    createdAt: comparison.createdAt,
+    config: comparison.config,
+    modesData: Object.fromEntries(
+      Object.entries(comparison.modes).map(([k, v]) => [k, {
+        status: v.status,
+        metrics: v.metrics,
+        results: v.results,
+      }])
+    ),
+    recommendation: comparison.recommendation,
+  }
+  const hKey = r => `${r.config.n}_${r.config.q}_${r.config.s}`
+  const existingIdx = history.findIndex(r => hKey(r) === hKey(histEntry))
+  if (existingIdx >= 0) {
+    // Merge modesData so previous mode runs are not lost
+    history[existingIdx] = {
+      ...histEntry,
+      modesData: { ...history[existingIdx].modesData, ...histEntry.modesData },
+    }
+  } else {
+    history.push(histEntry)
+  }
+  if (history.length > 100) history = history.slice(-100)
+  fs.writeFileSync(HISTORY_PATH, JSON.stringify(history, null, 2))
+  console.log('[run-demo] Run history updated.')
 
   finalizeProgress(allModeProgress)
   console.log('\n[run-demo] All done. comparison.json written.')

@@ -2,10 +2,16 @@ import { useState, useEffect } from 'react'
 import { loadStageLogs } from '../lib/loadJson.js'
 import { fmtTimestamp } from '../lib/formatters.js'
 
-export default function StageLogs({ embeddedLogs }) {
-  const [modeFilter, setModeFilter] = useState('A')
+export default function StageLogs({ embeddedLogs, runningModes }) {
+  const availableModes = runningModes?.length ? runningModes : ['A', 'B', 'C']
+  const [modeFilter, setModeFilter] = useState(availableModes[0])
   const [stageFilter, setStageFilter] = useState('all')
   const [logs, setLogs] = useState([])
+
+  // Sync default mode when runningModes arrives
+  useEffect(() => {
+    if (runningModes?.length) setModeFilter(runningModes[0])
+  }, [(runningModes ?? []).join(',')])
 
   useEffect(() => {
     if (embeddedLogs) {
@@ -15,7 +21,7 @@ export default function StageLogs({ embeddedLogs }) {
     loadStageLogs(modeFilter).then(data => setLogs(data ?? []))
   }, [modeFilter, embeddedLogs])
 
-  const stages = ['all','setup','registration','vote','aggregation','tally']
+  const stages = ['all','compile','setup','registration','vote','aggregation','tally']
   const filtered = stageFilter === 'all' ? logs : logs.filter(l => l.stage === stageFilter)
 
   function copyLogs() {
@@ -26,7 +32,7 @@ export default function StageLogs({ embeddedLogs }) {
     <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
       <div className="flex items-center gap-3 p-3 border-b border-slate-100 bg-slate-50 flex-wrap">
         <div className="flex gap-1">
-          {['A','B','C'].map(m => (
+          {availableModes.map(m => (
             <button key={m} onClick={() => setModeFilter(m)}
               className={`px-2.5 py-1 text-xs rounded font-medium transition-colors ${
                 modeFilter === m ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'

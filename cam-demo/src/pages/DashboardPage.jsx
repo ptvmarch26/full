@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import AppHeader from '../components/AppHeader.jsx'
 import FeasibilityGate from '../components/FeasibilityGate.jsx'
 import RecommendationCard from '../components/RecommendationCard.jsx'
 import MetricsCharts from '../components/MetricsCharts.jsx'
 import ModeComparisonTable from '../components/ModeComparisonTable.jsx'
 import SecondaryMeasurements from '../components/SecondaryMeasurements.jsx'
-import { loadComparison, loadBaselines } from '../lib/loadJson.js'
+import { loadComparison, loadBaselines, loadRunHistory } from '../lib/loadJson.js'
 import { buildRecommendation } from '../lib/metricsMapper.js'
 import { getVoterScale } from '../lib/scenarioMatcher.js'
 
@@ -17,19 +17,30 @@ const DEFAULT_CFG = { n: 1000, q: 10, s: 2, batd: 'Authority-constrained', oc: '
 export default function DashboardPage() {
   const [comparison, setComparison] = useState(null)
   const [baselines, setBaselines] = useState(null)
+  const [history, setHistory] = useState([])
   const [cfg, setCfg] = useState(DEFAULT_CFG)
 
   useEffect(() => {
     loadComparison().then(d => { if (d) setComparison(d) })
     loadBaselines().then(d => { if (d) setBaselines(d) })
+    loadRunHistory().then(d => { if (Array.isArray(d)) setHistory(d) })
   }, [])
 
   const set = (k, v) => setCfg(p => ({ ...p, [k]: v }))
   const numSet = (k, v) => set(k, v === '' ? '' : Number(v))
   const VS = cfg.n ? getVoterScale(Number(cfg.n)) : '—'
 
+  const matchedRun = useMemo(() => {
+    if (!history.length) return null
+    const n = Number(cfg.n), q = Number(cfg.q), s = Number(cfg.s)
+    const matches = history.filter(r =>
+      Number(r.config.n) === n && Number(r.config.q) === q && Number(r.config.s) === s
+    )
+    return matches.length ? matches[matches.length - 1] : null
+  }, [history, cfg.n, cfg.q, cfg.s])
+
   const { feasibility, feasibleModes, eliminatedModes, recommended, reasoning } =
-    buildRecommendation(cfg.batd, cfg.oc, comparison?.modes)
+    buildRecommendation(cfg.batd, cfg.oc, matchedRun?.modesData ?? comparison?.modes)
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -41,8 +52,9 @@ export default function DashboardPage() {
     reader.readAsText(file)
   }
 
-  const modesData = comparison?.modes ?? null
-  const runConfig  = comparison?.config ?? null
+  const modesData  = matchedRun?.modesData ?? comparison?.modes ?? null
+  const runConfig  = matchedRun?.config ?? comparison?.config ?? null
+  const dataSource = matchedRun ? 'history' : comparison ? 'latest' : null
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -105,9 +117,14 @@ export default function DashboardPage() {
               Import run-summary
               <input type="file" accept=".json" className="hidden" onChange={handleImport} />
             </label>
-            {runConfig && (
+            {runConfig && dataSource === 'history' && (
+              <span className="text-xs text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded">
+                Dữ liệu thực: n={runConfig.n} q={runConfig.q} s={runConfig.s} — {Object.keys(modesData ?? {}).map(m => `Mode ${m}`).join(', ')} (phần còn lại dùng baseline)
+              </span>
+            )}
+            {runConfig && dataSource === 'latest' && (
               <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
-                Run: n={runConfig.n} q={runConfig.q} s={runConfig.s}
+                Lần chạy gần nhất: n={runConfig.n} q={runConfig.q} s={runConfig.s}
               </span>
             )}
           </div>

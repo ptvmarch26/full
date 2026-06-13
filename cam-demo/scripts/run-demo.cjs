@@ -147,23 +147,48 @@ async function waitForHardhatReady(port, timeoutMs = 45000) {
 // ---------------------------------------------------------------------------
 // Process helpers
 // ---------------------------------------------------------------------------
-function runHardhatScript(scriptPath, modeDir, env = {}) {
-  const result = spawnSync(
-    'npx', ['hardhat', 'run', scriptPath, '--network', 'localhost'],
-    {
-      cwd: modeDir,
-      encoding: 'utf8',
-      shell: true,
-      windowsHide: true,
-      env: { ...process.env, ...env },
-      timeout: 300000,
-    }
-  )
-  return {
-    ok: result.status === 0,
-    stdout: result.stdout ?? '',
-    stderr: result.stderr ?? '',
-  }
+function runHardhatScript(scriptPath, modeDir, env = {}, onLine = null) {
+  return new Promise((resolve) => {
+    const proc = spawn(
+      'npx', ['hardhat', 'run', scriptPath, '--network', 'localhost'],
+      {
+        cwd: modeDir,
+        shell: true,
+        windowsHide: true,
+        env: { ...process.env, ...env },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      }
+    )
+
+    let stdout = ''
+    let stderr = ''
+
+    proc.stdout.on('data', (data) => {
+      const text = data.toString()
+      stdout += text
+      text.split('\n').filter(l => l.trim()).forEach(line => onLine?.('stdout', line.trim()))
+    })
+
+    proc.stderr.on('data', (data) => {
+      const text = data.toString()
+      text.split('\n').filter(l => l.trim()).forEach(line => {
+        if (!line.includes('DeprecationWarning') && !line.includes('ExperimentalWarning')) {
+          stderr += line + '\n'
+          onLine?.('stderr', line.trim())
+        }
+      })
+    })
+
+    const killTimer = setTimeout(() => { try { proc.kill() } catch {} }, 300000)
+    proc.on('close', (code) => {
+      clearTimeout(killTimer)
+      resolve({ ok: code === 0, stdout, stderr })
+    })
+    proc.on('error', (err) => {
+      clearTimeout(killTimer)
+      resolve({ ok: false, stdout, stderr: err.message })
+    })
+  })
 }
 
 // ---------------------------------------------------------------------------
@@ -340,16 +365,45 @@ function readCompiledTvTrusteesFromSym(symPath) {
   } catch { return 0 }
 }
 
-function runNodeScript(scriptArgs, cwd) {
-  const result = spawnSync('node', scriptArgs, {
-    cwd,
-    encoding: 'utf8',
-    shell: true,
-    windowsHide: true,
-    env: { ...process.env },
-    timeout: 900000, // 15 min — compilation can be slow
+function runNodeScript(scriptArgs, cwd, onLine = null, extraEnv = {}) {
+  return new Promise((resolve) => {
+    const proc = spawn('node', scriptArgs, {
+      cwd,
+      shell: false,
+      windowsHide: true,
+      env: { ...process.env, ...extraEnv },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    })
+
+    let stdout = ''
+    let stderr = ''
+
+    proc.stdout.on('data', (data) => {
+      const text = data.toString()
+      stdout += text
+      text.split('\n').filter(l => l.trim()).forEach(line => onLine?.('stdout', line.trim()))
+    })
+
+    proc.stderr.on('data', (data) => {
+      const text = data.toString()
+      text.split('\n').filter(l => l.trim()).forEach(line => {
+        if (!line.includes('DeprecationWarning') && !line.includes('ExperimentalWarning')) {
+          stderr += line + '\n'
+          onLine?.('stderr', line.trim())
+        }
+      })
+    })
+
+    const killTimer = setTimeout(() => { try { proc.kill() } catch {} }, 900000)
+    proc.on('close', (code) => {
+      clearTimeout(killTimer)
+      resolve({ ok: code === 0, stdout, stderr })
+    })
+    proc.on('error', (err) => {
+      clearTimeout(killTimer)
+      resolve({ ok: false, stdout, stderr: err.message })
+    })
   })
-  return { ok: result.status === 0, stdout: result.stdout ?? '', stderr: result.stderr ?? '' }
 }
 
 // ---------------------------------------------------------------------------
@@ -484,24 +538,13 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
           continue
         }
         console.log(`[Mode ${mode}] Running node ${scriptPath}...`)
-        const result = spawnSync('node', [fullPath], {
-          cwd: modeDir, encoding: 'utf8', shell: false, windowsHide: true,
-          env: { ...process.env, ...env }, timeout: 120000,
-        })
-        const ok = result.status === 0
-        ;(result.stdout ?? '').split('\n').filter(Boolean).forEach(msg => {
-          stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-        })
-        ;(result.stderr ?? '').split('\n').filter(Boolean).forEach(msg => {
-          if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning')) {
-            stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
-          }
-        })
+        const { ok } = await runNodeScript([fullPath], modeDir, (type, msg) => {
+          stageLogs.push({ stage: stage.key, type, message: msg, timestamp: new Date().toISOString() })
+        }, env)
         if (!ok) {
           stageOk = false
           stageError = `Node script ${scriptPath} failed.`
           console.error(`[Mode ${mode}] FAILED: ${scriptPath}`)
-          console.error(`[Mode ${mode}] stderr: ${result.stderr?.slice(0, 500)}`)
           break
         }
       }
@@ -512,19 +555,13 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
       patchCircomMain(tvPath, neededTV)
 
       console.log(`[Mode ${mode}] Compiling VoteProofCombined + TallyValidity (this may take several minutes)...`)
-      const compileResult = runNodeScript(
+      const compileResult = await runNodeScript(
         ['scripts/circom.js', 'VoteProofCombined', 'TallyValidity'],
-        modeDir
-      )
-
-      compileResult.stdout.split('\n').filter(Boolean).forEach(msg => {
-        stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-      })
-      compileResult.stderr.split('\n').filter(Boolean).forEach(msg => {
-        if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning')) {
-          stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
+        modeDir,
+        (type, msg) => {
+          stageLogs.push({ stage: stage.key, type, message: msg, timestamp: new Date().toISOString() })
         }
-      })
+      )
 
       if (!compileResult.ok) {
         const fbQ = readCompiledQFromSym(vpcSymPath)
@@ -556,13 +593,28 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
       // regardless of whether circom succeeded or fell back to pre-compiled circuits.
       if (stageOk) {
         console.log(`[Mode ${mode}] Running hardhat compile...`)
-        const hcResult = spawnSync('npx', ['hardhat', 'compile'], {
-          cwd: modeDir, encoding: 'utf8', shell: true, windowsHide: true, timeout: 120000,
+        const hcResult = await new Promise(resolve => {
+          const proc = spawn('npx', ['hardhat', 'compile'], {
+            cwd: modeDir, shell: true, windowsHide: true,
+            stdio: ['ignore', 'pipe', 'pipe'],
+          })
+          let ok = true
+          proc.stdout.on('data', d => {
+            d.toString().split('\n').filter(l => l.trim()).forEach(msg => {
+              stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
+            })
+          })
+          proc.stderr.on('data', d => {
+            d.toString().split('\n').filter(l => l.trim()).forEach(msg => {
+              if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning'))
+                stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
+            })
+          })
+          const t = setTimeout(() => { try { proc.kill() } catch {} }, 120000)
+          proc.on('close', code => { clearTimeout(t); resolve({ ok: code === 0 }) })
+          proc.on('error', () => { clearTimeout(t); resolve({ ok: false }) })
         })
-        ;(hcResult.stdout ?? '').split('\n').filter(Boolean).forEach(msg => {
-          stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-        })
-        if (hcResult.status !== 0) {
+        if (!hcResult.ok) {
           stageOk = false
           stageError = 'hardhat compile failed.'
           console.error(`[Mode ${mode}] hardhat compile FAILED`)
@@ -577,32 +629,33 @@ async function runMode(mode, modeDir, config, allModeProgress, logs) {
         }
 
         console.log(`[Mode ${mode}] Running ${scriptPath}...`)
-        const { ok, stdout, stderr } = runHardhatScript(scriptPath, modeDir, env)
+        let scriptStdout = ''
+        const { ok } = await runHardhatScript(scriptPath, modeDir, env, (type, msg) => {
+          stageLogs.push({ stage: stage.key, type, message: msg, timestamp: new Date().toISOString() })
+          if (type === 'stdout') scriptStdout += msg + '\n'
 
-        // Capture logs
-        stdout.split('\n').filter(Boolean).forEach(msg => {
-          stageLogs.push({ stage: stage.key, type: 'stdout', message: msg.trim(), timestamp: new Date().toISOString() })
-        })
-        if (stderr) {
-          stderr.split('\n').filter(Boolean).forEach(msg => {
-            if (!msg.includes('DeprecationWarning') && !msg.includes('ExperimentalWarning')) {
-              stageLogs.push({ stage: stage.key, type: 'stderr', message: msg.trim(), timestamp: new Date().toISOString() })
+          // Real-time vote progress: update detail so UI can show "Vote X/N"
+          if (stage.key === 'vote' && type === 'stdout') {
+            const m = msg.match(/^Vote (\d+)\/(\d+):/)
+            if (m) {
+              mp.detail = `Vote ${m[1]}/${m[2]}`
+              updateProgress(allModeProgress, mode)
             }
-          })
-        }
+          }
+        })
 
         if (!ok) {
           stageOk = false
           stageError = `Script ${scriptPath} failed.`
           console.error(`[Mode ${mode}] FAILED: ${scriptPath}`)
-          const errOut = (stderr ?? stdout ?? '').trim().slice(-2000)
-          if (errOut) console.error(`[Mode ${mode}] Output:\n${errOut}`)
+          const errLines = stageLogs.filter(l => l.stage === stage.key && l.type === 'stderr').slice(-10)
+          if (errLines.length) console.error(`[Mode ${mode}] Last errors:\n${errLines.map(l => l.message).join('\n')}`)
           break
         }
 
         // Extract tally results
         if (scriptPath.includes('tally.js')) {
-          finalCounts = extractFinalCounts(stdout)
+          finalCounts = extractFinalCounts(scriptStdout)
         }
       }
     }
@@ -831,6 +884,38 @@ async function main() {
     recommendation: rec,
   }
   writeJson(path.join(PUBLIC_OUT, 'comparison.json'), comparison)
+
+  // Append lean entry to run history (keyed by n/q/s; newest wins)
+  const HISTORY_PATH = path.join(ROOT, 'public', 'data', 'run-history.json')
+  let history = []
+  try { history = JSON.parse(fs.readFileSync(HISTORY_PATH, 'utf8')) } catch {}
+  const histEntry = {
+    runId: comparison.runId,
+    createdAt: comparison.createdAt,
+    config: comparison.config,
+    modesData: Object.fromEntries(
+      Object.entries(comparison.modes).map(([k, v]) => [k, {
+        status: v.status,
+        metrics: v.metrics,
+        results: v.results,
+      }])
+    ),
+    recommendation: comparison.recommendation,
+  }
+  const hKey = r => `${r.config.n}_${r.config.q}_${r.config.s}`
+  const existingIdx = history.findIndex(r => hKey(r) === hKey(histEntry))
+  if (existingIdx >= 0) {
+    // Merge modesData so previous mode runs are not lost
+    history[existingIdx] = {
+      ...histEntry,
+      modesData: { ...history[existingIdx].modesData, ...histEntry.modesData },
+    }
+  } else {
+    history.push(histEntry)
+  }
+  if (history.length > 100) history = history.slice(-100)
+  fs.writeFileSync(HISTORY_PATH, JSON.stringify(history, null, 2))
+  console.log('[run-demo] Run history updated.')
 
   finalizeProgress(allModeProgress)
   console.log('\n[run-demo] All done. comparison.json written.')

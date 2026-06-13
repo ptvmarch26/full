@@ -279,6 +279,9 @@ async function main() {
 
   console.log(`Tally time: ${tallyTime} ms`);
   console.log("Final results:", finalResults);
+  finalResults.forEach(r => {
+    console.log(`Candidate ${r.candidateId}: ${r.votes} votes`);
+  });
 
   const counts = finalResults.map((x) => Number(x.votes));
   await votingContract.revealResults(counts);

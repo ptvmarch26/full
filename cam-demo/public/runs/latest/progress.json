@@ -2,13 +2,27 @@
   "status": "completed",
   "currentMode": null,
   "modes": {
+    "A": {
+      "status": "completed",
+      "currentStage": null,
+      "detail": "21.5s",
+      "stageStartedAt": "2026-06-13T08:29:16.597Z",
+      "hasCompile": true
+    },
     "B": {
       "status": "completed",
       "currentStage": null,
-      "detail": "21.1s",
-      "stageStartedAt": "2026-06-13T04:12:01.297Z",
+      "detail": "22.1s",
+      "stageStartedAt": "2026-06-13T08:31:14.189Z",
+      "hasCompile": true
+    },
+    "C": {
+      "status": "completed",
+      "currentStage": null,
+      "detail": "29.9s",
+      "stageStartedAt": "2026-06-13T08:32:34.657Z",
       "hasCompile": true
     }
   },
-  "updatedAt": "2026-06-13T04:12:23.962Z"
+  "updatedAt": "2026-06-13T08:33:06.294Z"
 }
