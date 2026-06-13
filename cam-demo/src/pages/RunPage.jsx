@@ -11,7 +11,7 @@ import { fmtGas, fmtMs, fmtDuration } from '../lib/formatters.js'
 
 const SAMPLE_CONFIG = {
   n: 1000, q: 10, s: 2,
-  modes: ['A', 'B', 'C'],
+  modes: [],
   batd: 'Authority-constrained',
   oc: 'Moderate',
   trusteeCount: 5,
@@ -44,6 +44,7 @@ export default function RunPage() {
   const [comparison, setComparison] = useState(null)
   const [showProgress, setShowProgress] = useState(false)
   const pollRef = useRef(null)
+  const runStartedRef = useRef(null)
 
   const set = (k, v) => setCfg(p => ({ ...p, [k]: v }))
   const numSet = (k, v) => set(k, v === '' ? '' : Number(v))
@@ -55,11 +56,15 @@ export default function RunPage() {
     if (running) {
       pollRef.current = setInterval(async () => {
         const p = await loadProgress()
-        if (p) setProgress(p)
-        const runModes = p?.modes ? Object.keys(p.modes) : []
+        if (!p) return
+        // Ignore stale progress.json from a previous run
+        const pTime = p.updatedAt ? new Date(p.updatedAt).getTime() : 0
+        if (pTime < (runStartedRef.current ?? 0)) return
+        setProgress(p)
+        const runModes = Object.keys(p.modes ?? {})
         const allDone = runModes.length > 0 && runModes.every(m => p.modes[m]?.status === 'completed')
-        const anyError = runModes.some(m => p?.modes?.[m]?.status === 'error')
-        if (p?.status === 'completed' || allDone || anyError) {
+        const anyError = runModes.some(m => p.modes[m]?.status === 'error')
+        if (p.status === 'completed' || allDone || anyError) {
           clearInterval(pollRef.current)
           setRunning(false)
           const cmp = await loadComparison()
@@ -83,6 +88,7 @@ export default function RunPage() {
       threshold: { trusteeCount: Number(cfg.trusteeCount), approvalThreshold: Number(cfg.approvalThreshold) },
     }
 
+    runStartedRef.current = Date.now()
     const selectedModes = Array.isArray(cfg.modes) ? cfg.modes : [cfg.modes]
     const initialModes = {}
     selectedModes.forEach((m, i) => {
@@ -119,7 +125,7 @@ export default function RunPage() {
   }
 
   function handleReset() {
-    setCfg({ n: '', q: '', s: '', modes: ['A'], batd: 'Authority-reliant', oc: 'Minimal', trusteeCount: 3, approvalThreshold: 2 })
+    setCfg({ n: '', q: '', s: '', modes: [], batd: 'Authority-reliant', oc: 'Minimal', trusteeCount: 3, approvalThreshold: 2 })
     setErrors({})
     setShowProgress(false)
     setProgress(null)

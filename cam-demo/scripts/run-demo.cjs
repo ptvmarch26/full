@@ -697,6 +697,11 @@ async function main() {
 
   console.log(`[run-demo] Config: n=${config.n} q=${config.q} s=${config.s} modes=${modesToRun.join(',')}`)
 
+  // Reset progress.json immediately so UI polls don't read stale data from a previous run
+  const allModeProgress = {}
+  modesToRun.forEach(m => { allModeProgress[m] = { status: 'pending', currentStage: null, detail: null } })
+  initProgress(modesToRun)
+
   // --- Start IPFS daemon once ---
   let ipfsProc = null
   const ipfsAlreadyRunning = await isPortOpen(5001)
@@ -717,13 +722,6 @@ async function main() {
   } else {
     console.log('[run-demo] IPFS daemon already running.')
   }
-
-  // Initialise progress
-  const allModeProgress = {}
-  modesToRun.forEach(m => {
-    allModeProgress[m] = { status: 'pending', currentStage: null, detail: null }
-  })
-  initProgress(modesToRun)
 
   const modeResults = {}
 
