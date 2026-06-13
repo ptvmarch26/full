@@ -11,7 +11,7 @@ import { fmtGas, fmtMs, fmtDuration } from '../lib/formatters.js'
 
 const SAMPLE_CONFIG = {
   n: 1000, q: 10, s: 2,
-  modes: 'all',
+  modes: ['A', 'B', 'C'],
   batd: 'Authority-constrained',
   oc: 'Moderate',
   trusteeCount: 5,
@@ -31,6 +31,7 @@ function validate(cfg) {
   if (cfg.trusteeCount > 19)                        errs.trusteeCount = '≤ 19 (Hardhat limit)'
   if (!cfg.approvalThreshold || cfg.approvalThreshold < 1) errs.approvalThreshold = '≥ 1'
   if (cfg.approvalThreshold >= cfg.trusteeCount)    errs.approvalThreshold = '< trustees (threshold scheme)'
+  if (!cfg.modes || cfg.modes.length === 0)         errs.modes = 'Select at least one mode'
   return errs
 }
 
@@ -55,8 +56,9 @@ export default function RunPage() {
       pollRef.current = setInterval(async () => {
         const p = await loadProgress()
         if (p) setProgress(p)
-        const allDone = p && ['A','B','C'].every(m => p.modes?.[m]?.status === 'completed')
-        const anyError = p && ['A','B','C'].some(m => p.modes?.[m]?.status === 'error')
+        const runModes = p?.modes ? Object.keys(p.modes) : []
+        const allDone = runModes.length > 0 && runModes.every(m => p.modes[m]?.status === 'completed')
+        const anyError = runModes.some(m => p?.modes?.[m]?.status === 'error')
         if (p?.status === 'completed' || allDone || anyError) {
           clearInterval(pollRef.current)
           setRunning(false)
@@ -81,11 +83,17 @@ export default function RunPage() {
       threshold: { trusteeCount: Number(cfg.trusteeCount), approvalThreshold: Number(cfg.approvalThreshold) },
     }
 
+    const selectedModes = Array.isArray(cfg.modes) ? cfg.modes : [cfg.modes]
+    const initialModes = {}
+    selectedModes.forEach((m, i) => {
+      initialModes[m] = { status: i === 0 ? 'running' : 'pending', currentStage: i === 0 ? 'setup' : null }
+    })
+
     setShowProgress(true)
     setRunning(true)
     setProgress({
-      status: 'running', currentMode: 'A',
-      modes: { A: { status: 'running', currentStage: 'setup' }, B: { status: 'pending' }, C: { status: 'pending' } },
+      status: 'running', currentMode: selectedModes[0],
+      modes: initialModes,
     })
 
     try {
@@ -111,7 +119,7 @@ export default function RunPage() {
   }
 
   function handleReset() {
-    setCfg({ n: '', q: '', s: '', modes: 'all', batd: 'Authority-reliant', oc: 'Minimal', trusteeCount: 3, approvalThreshold: 2 })
+    setCfg({ n: '', q: '', s: '', modes: ['A'], batd: 'Authority-reliant', oc: 'Minimal', trusteeCount: 3, approvalThreshold: 2 })
     setErrors({})
     setShowProgress(false)
     setProgress(null)
@@ -134,7 +142,9 @@ export default function RunPage() {
     a.click()
   }
 
-  const allDone = progress && ['A','B','C'].every(m => progress.modes?.[m]?.status === 'completed')
+  const runningModes = progress?.modes ? Object.keys(progress.modes) : []
+  const allDone = progress?.status === 'completed' ||
+    (runningModes.length > 0 && runningModes.every(m => progress.modes[m]?.status === 'completed'))
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -160,7 +170,7 @@ export default function RunPage() {
                 className={inputCls(errors.n)} />
               <div className="space-y-0.5 mt-1">
                 {cfg.n && <span className="text-xs text-slate-400 block">VS: {VS}</span>}
-                {cfg.n > 1000 && cfg.modes !== 'A' && (
+                {cfg.n > 1000 && (cfg.modes.includes('B') || cfg.modes.includes('C')) && (
                   <span className="text-xs text-amber-600 block">Mode B/C capped at 1,000</span>
                 )}
               </div>
@@ -188,14 +198,21 @@ export default function RunPage() {
             <p className="text-xs text-slate-400">q/s inputs are for dashboard analysis only. Simulation always uses circuit-compiled q per mode.</p>
           </div>
 
-          <Field label="Modes to run">
-            <div className="flex gap-3 flex-wrap">
-              {[['all','All 3 (A + B + C)'],['A','Mode A'],['B','Mode B'],['C','Mode C']].map(([val, lbl]) => (
-                <label key={val} className="flex items-center gap-1.5 cursor-pointer">
-                  <input type="radio" name="modes" value={val} checked={cfg.modes === val}
-                    onChange={() => set('modes', val)}
-                    className="accent-blue-600" />
-                  <span className="text-sm text-slate-700">{lbl}</span>
+          <Field label="Modes to run" error={errors.modes}>
+            <div className="flex gap-4 flex-wrap">
+              {['A', 'B', 'C'].map(m => (
+                <label key={m} className="flex items-center gap-1.5 cursor-pointer">
+                  <input type="checkbox" value={m}
+                    checked={cfg.modes.includes(m)}
+                    onChange={e => {
+                      const checked = e.target.checked
+                      set('modes', checked
+                        ? [...cfg.modes, m].sort()
+                        : cfg.modes.filter(x => x !== m)
+                      )
+                    }}
+                    className="accent-blue-600 w-4 h-4" />
+                  <span className="text-sm text-slate-700">Mode {m}</span>
                 </label>
               ))}
             </div>
@@ -304,8 +321,8 @@ export default function RunPage() {
             {/* Stage Results */}
             <div className="bg-white rounded-xl border border-slate-200 p-5 space-y-4">
               <h2 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">Stage Results</h2>
-              <div className="grid grid-cols-3 gap-4">
-                {['A','B','C'].map(m => {
+              <div className={`grid gap-4 ${runningModes.length === 1 ? 'grid-cols-1 max-w-sm' : runningModes.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                {runningModes.map(m => {
                   const md = comparison.modes?.[m]
                   return (
                     <div key={m} className="border border-slate-200 rounded-lg p-4">
@@ -333,7 +350,7 @@ export default function RunPage() {
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-100">
                     <th className="text-left px-4 py-2 text-slate-500 font-medium">Metric</th>
-                    {['A','B','C'].map(m => (
+                    {runningModes.map(m => (
                       <th key={m} className="text-center px-4 py-2 text-slate-500 font-medium">Mode {m}</th>
                     ))}
                   </tr>
@@ -352,7 +369,7 @@ export default function RunPage() {
                   ].map(row => (
                     <tr key={row.label} className="border-b border-slate-50 hover:bg-slate-50">
                       <td className="px-4 py-2 text-slate-600">{row.label}</td>
-                      {['A','B','C'].map(m => (
+                      {runningModes.map(m => (
                         <td key={m} className="px-4 py-2 text-center font-mono text-slate-700">{row.fn(m)}</td>
                       ))}
                     </tr>
