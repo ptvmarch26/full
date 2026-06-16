@@ -56,4 +56,4 @@ template VotingCircuit(depth, nCandidates) {
     // globalCommit <== finalHash.out;
 }
 
-component main = VotingCircuit(10, 10);
+component main = VotingCircuit(4, 2);

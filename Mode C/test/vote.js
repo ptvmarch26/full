@@ -10,13 +10,15 @@ const { performance } = require("perf_hooks");
 const { getContract } = require("../configs/blockchain");
 const { uploadToIPFS } = require("../utils/ipfs");
 
+const NUM_VOTERS = process.env.DEMO_N || "10";
+
 const VOTER_DB_FILE = path.join(
   __dirname,
-  "../data/voter_data_for_db_1000.json",
+  `../data/voter_data_for_db_${NUM_VOTERS}.json`,
 );
 const VOTER_SECRETS_FILE = path.join(
   __dirname,
-  "../data/voter_secrets_for_script_1000.json",
+  `../data/voter_secrets_for_script_${NUM_VOTERS}.json`,
 );
 const DKG_PUBLIC_KEY_PATH = path.join(
   __dirname,
@@ -103,15 +105,16 @@ function resetCSV() {
 }
 
 function appendCSVData(data) {
-  const row = [
-    data.voter,
-    data.mode,
-    data.gasUsed,
-    data.endToEndTimeMs,
-    data.witnessTimeMs,
-    data.proofGenerationTimeMs,
-    data.resultCode,
-  ].join(",") + "\n";
+  const row =
+    [
+      data.voter,
+      data.mode,
+      data.gasUsed,
+      data.endToEndTimeMs,
+      data.witnessTimeMs,
+      data.proofGenerationTimeMs,
+      data.resultCode,
+    ].join(",") + "\n";
 
   fs.appendFileSync(CSV_FILE, row, "utf8");
 }
@@ -383,16 +386,12 @@ async function main() {
           C2y,
         };
 
-        const {
-          proof,
-          publicSignals,
-          witnessTimeMs,
-          proofGenerationTimeMs,
-        } = await generateWitnessAndProof(
-          witnessInput,
-          voterSecret.hashed_key,
-          i,
-        );
+        const { proof, publicSignals, witnessTimeMs, proofGenerationTimeMs } =
+          await generateWitnessAndProof(
+            witnessInput,
+            voterSecret.hashed_key,
+            i,
+          );
 
         const cid = await uploadToIPFS(
           JSON.stringify({
@@ -477,11 +476,15 @@ async function main() {
         } else {
           failedCount++;
         }
-        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
+        console.log(
+          `Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`,
+        );
       } catch (error) {
         failedCount++;
         console.error(`Vote ${i + 1} failed: ${error.message}`);
-        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
+        console.log(
+          `Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`,
+        );
       }
     }
   } finally {
@@ -492,8 +495,7 @@ async function main() {
     submittedCount > 0 ? totalEndToEndTime / submittedCount : 0;
   const averageWitness =
     submittedCount > 0 ? totalWitnessTime / submittedCount : 0;
-  const averageProof =
-    submittedCount > 0 ? totalProofTime / submittedCount : 0;
+  const averageProof = submittedCount > 0 ? totalProofTime / submittedCount : 0;
 
   console.log(`Average end-to-end time: ${averageEndToEnd.toFixed(2)} ms`);
   console.log(`Average witness time: ${averageWitness.toFixed(2)} ms`);

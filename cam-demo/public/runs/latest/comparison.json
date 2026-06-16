@@ -1,10 +1,10 @@
 {
-  "runId": "run-1781339586292",
-  "createdAt": "2026-06-13T08:33:06.292Z",
+  "runId": "run-1781510405463",
+  "createdAt": "2026-06-15T08:00:05.463Z",
   "config": {
-    "n": 20,
-    "q": 10,
-    "s": 2,
+    "n": 10,
+    "q": 2,
+    "s": 1,
     "VS": "Small",
     "threshold": {
       "trusteeCount": 5,
@@ -15,9 +15,9 @@
     "A": {
       "status": "completed",
       "pipeline": {
-        "totalDurationMs": 65201,
-        "startedAt": "2026-06-13T08:28:32.912Z",
-        "finishedAt": "2026-06-13T08:29:38.113Z"
+        "totalDurationMs": 128209,
+        "startedAt": "2026-06-15T07:53:38.898Z",
+        "finishedAt": "2026-06-15T07:55:47.107Z"
       },
       "stages": [
         {
@@ -25,7 +25,7 @@
           "label": "Circuit Compilation",
           "script": "circom.js + hardhat compile",
           "status": "completed",
-          "durationMs": 1828,
+          "durationMs": 86453,
           "error": null
         },
         {
@@ -33,15 +33,15 @@
           "label": "Setup",
           "script": "deploy.js",
           "status": "completed",
-          "durationMs": 3027,
+          "durationMs": 2269,
           "error": null
         },
         {
           "key": "prepare_voters",
           "label": "Generate Voter Data",
-          "script": "gen_demo_voters.cjs",
+          "script": "gen_voter.js + prepare_voters.js",
           "status": "completed",
-          "durationMs": 1509,
+          "durationMs": 3387,
           "error": null
         },
         {
@@ -49,7 +49,7 @@
           "label": "Registration",
           "script": "register.js",
           "status": "completed",
-          "durationMs": 3058,
+          "durationMs": 2834,
           "error": null
         },
         {
@@ -57,7 +57,7 @@
           "label": "Ballot Validation & Commitment",
           "script": "vote.js",
           "status": "completed",
-          "durationMs": 28049,
+          "durationMs": 19255,
           "error": null
         },
         {
@@ -65,7 +65,7 @@
           "label": "Aggregation",
           "script": "prepare_aggregation.js + aggregate.js",
           "status": "completed",
-          "durationMs": 6222,
+          "durationMs": 2786,
           "error": null
         },
         {
@@ -73,22 +73,22 @@
           "label": "Tallying & Result Revelation",
           "script": "partial.js + tally.js",
           "status": "completed",
-          "durationMs": 21508,
+          "durationMs": 11225,
           "error": null
         }
       ],
       "metrics": {
         "BVC": {
-          "averageGasPerAcceptedBallot": 53910,
-          "totalGasUsed": 1078204,
-          "submittedBallots": 20,
-          "acceptedBallots": 20,
+          "averageGasPerAcceptedBallot": 53983,
+          "totalGasUsed": 539834,
+          "submittedBallots": 10,
+          "acceptedBallots": 10,
           "failedBallots": 0
         },
         "OAL": {
-          "averageEndToEndMs": 1218.96,
-          "averageWitnessMs": 170.4,
-          "averageProofMs": 927.7
+          "averageEndToEndMs": 1550.52,
+          "averageWitnessMs": 195.32,
+          "averageProofMs": 1178.38
         }
       },
       "results": {
@@ -96,14 +96,14 @@
           {
             "candidateId": 1,
             "candidateName": "Candidate 1",
-            "votes": 20,
-            "percentage": 50
+            "votes": 4,
+            "percentage": 40
           },
           {
             "candidateId": 2,
             "candidateName": "Candidate 2",
-            "votes": 20,
-            "percentage": 50
+            "votes": 6,
+            "percentage": 60
           }
         ],
         "revealedOnChain": true
@@ -112,9 +112,9 @@
     "B": {
       "status": "completed",
       "pipeline": {
-        "totalDurationMs": 114355,
-        "startedAt": "2026-06-13T08:29:41.938Z",
-        "finishedAt": "2026-06-13T08:31:36.293Z"
+        "totalDurationMs": 122528,
+        "startedAt": "2026-06-15T07:55:50.574Z",
+        "finishedAt": "2026-06-15T07:57:53.102Z"
       },
       "stages": [
         {
@@ -122,7 +122,7 @@
           "label": "Circuit Compilation",
           "script": "circom.js + hardhat compile",
           "status": "completed",
-          "durationMs": 1888,
+          "durationMs": 80626,
           "error": null
         },
         {
@@ -130,15 +130,15 @@
           "label": "Setup",
           "script": "deploy.js",
           "status": "completed",
-          "durationMs": 2879,
+          "durationMs": 2415,
           "error": null
         },
         {
           "key": "prepare_voters",
           "label": "Generate Voter Data",
-          "script": "gen_demo_voters.cjs",
+          "script": "gen_voter.js + prepare_voters.js",
           "status": "completed",
-          "durationMs": 1186,
+          "durationMs": 3418,
           "error": null
         },
         {
@@ -146,7 +146,7 @@
           "label": "Registration",
           "script": "register.js",
           "status": "completed",
-          "durationMs": 3406,
+          "durationMs": 2963,
           "error": null
         },
         {
@@ -154,7 +154,7 @@
           "label": "Ballot Validation & Commitment",
           "script": "vote.js",
           "status": "completed",
-          "durationMs": 76644,
+          "durationMs": 17265,
           "error": null
         },
         {
@@ -162,7 +162,7 @@
           "label": "Aggregation",
           "script": "prepare_aggregation.js + aggregate.js",
           "status": "completed",
-          "durationMs": 6254,
+          "durationMs": 5332,
           "error": null
         },
         {
@@ -170,22 +170,22 @@
           "label": "Tallying & Result Revelation",
           "script": "partial.js + tally.js",
           "status": "completed",
-          "durationMs": 22098,
+          "durationMs": 10509,
           "error": null
         }
       ],
       "metrics": {
         "BVC": {
-          "averageGasPerAcceptedBallot": 261832,
-          "totalGasUsed": 5236632,
-          "submittedBallots": 20,
-          "acceptedBallots": 20,
+          "averageGasPerAcceptedBallot": 261901,
+          "totalGasUsed": 2619012,
+          "submittedBallots": 10,
+          "acceptedBallots": 10,
           "failedBallots": 0
         },
         "OAL": {
-          "averageEndToEndMs": 3658.03,
-          "averageWitnessMs": 595.89,
-          "averageProofMs": 2526.84
+          "averageEndToEndMs": 1619.48,
+          "averageWitnessMs": 188.49,
+          "averageProofMs": 1212.76
         }
       },
       "results": {
@@ -193,62 +193,14 @@
           {
             "candidateId": 1,
             "candidateName": "Candidate 1",
-            "votes": 3,
-            "percentage": 7.5
+            "votes": 4,
+            "percentage": 40
           },
           {
             "candidateId": 2,
             "candidateName": "Candidate 2",
-            "votes": 8,
-            "percentage": 20
-          },
-          {
-            "candidateId": 3,
-            "candidateName": "Candidate 3",
-            "votes": 4,
-            "percentage": 10
-          },
-          {
-            "candidateId": 4,
-            "candidateName": "Candidate 4",
-            "votes": 2,
-            "percentage": 5
-          },
-          {
-            "candidateId": 5,
-            "candidateName": "Candidate 5",
-            "votes": 3,
-            "percentage": 7.5
-          },
-          {
-            "candidateId": 6,
-            "candidateName": "Candidate 6",
-            "votes": 2,
-            "percentage": 5
-          },
-          {
-            "candidateId": 7,
-            "candidateName": "Candidate 7",
-            "votes": 3,
-            "percentage": 7.5
-          },
-          {
-            "candidateId": 8,
-            "candidateName": "Candidate 8",
-            "votes": 4,
-            "percentage": 10
-          },
-          {
-            "candidateId": 9,
-            "candidateName": "Candidate 9",
-            "votes": 5,
-            "percentage": 12.5
-          },
-          {
-            "candidateId": 10,
-            "candidateName": "Candidate 10",
             "votes": 6,
-            "percentage": 15
+            "percentage": 60
           }
         ],
         "revealedOnChain": true
@@ -257,9 +209,9 @@
     "C": {
       "status": "completed",
       "pipeline": {
-        "totalDurationMs": 82884,
-        "startedAt": "2026-06-13T08:31:41.715Z",
-        "finishedAt": "2026-06-13T08:33:04.599Z"
+        "totalDurationMs": 127050,
+        "startedAt": "2026-06-15T07:57:57.348Z",
+        "finishedAt": "2026-06-15T08:00:04.398Z"
       },
       "stages": [
         {
@@ -267,7 +219,7 @@
           "label": "Circuit Compilation",
           "script": "circom.js + hardhat compile",
           "status": "completed",
-          "durationMs": 1683,
+          "durationMs": 84633,
           "error": null
         },
         {
@@ -275,15 +227,15 @@
           "label": "Setup",
           "script": "deploy.js",
           "status": "completed",
-          "durationMs": 3116,
+          "durationMs": 2406,
           "error": null
         },
         {
           "key": "prepare_voters",
           "label": "Generate Voter Data",
-          "script": "gen_demo_voters.cjs",
+          "script": "gen_voter.js + prepare_voters.js",
           "status": "completed",
-          "durationMs": 1517,
+          "durationMs": 3430,
           "error": null
         },
         {
@@ -291,7 +243,7 @@
           "label": "Registration",
           "script": "register.js",
           "status": "completed",
-          "durationMs": 3512,
+          "durationMs": 2920,
           "error": null
         },
         {
@@ -299,7 +251,7 @@
           "label": "Ballot Validation & Commitment",
           "script": "vote.js",
           "status": "completed",
-          "durationMs": 36742,
+          "durationMs": 18571,
           "error": null
         },
         {
@@ -307,7 +259,7 @@
           "label": "Aggregation",
           "script": "prepare_aggregation.js + aggregate.js",
           "status": "completed",
-          "durationMs": 6377,
+          "durationMs": 5468,
           "error": null
         },
         {
@@ -315,22 +267,22 @@
           "label": "Tallying & Result Revelation",
           "script": "partial.js + tally.js",
           "status": "completed",
-          "durationMs": 29937,
+          "durationMs": 9622,
           "error": null
         }
       ],
       "metrics": {
         "BVC": {
-          "averageGasPerAcceptedBallot": 103106,
-          "totalGasUsed": 2062129,
-          "submittedBallots": 20,
-          "acceptedBallots": 20,
+          "averageGasPerAcceptedBallot": 93403,
+          "totalGasUsed": 934034,
+          "submittedBallots": 10,
+          "acceptedBallots": 10,
           "failedBallots": 0
         },
         "OAL": {
-          "averageEndToEndMs": 1638.85,
-          "averageWitnessMs": 237.9,
-          "averageProofMs": 1143.21
+          "averageEndToEndMs": 1780.3,
+          "averageWitnessMs": 195.13,
+          "averageProofMs": 1211.65
         }
       },
       "results": {
@@ -338,14 +290,14 @@
           {
             "candidateId": 1,
             "candidateName": "Candidate 1",
-            "votes": 20,
-            "percentage": 50
+            "votes": 6,
+            "percentage": 60
           },
           {
             "candidateId": 2,
             "candidateName": "Candidate 2",
-            "votes": 20,
-            "percentage": 50
+            "votes": 4,
+            "percentage": 40
           }
         ],
         "revealedOnChain": true
@@ -364,6 +316,6 @@
       }
     ],
     "recommended": "C",
-    "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 103,106 gas, OAL: 1639 ms). Note: OC = Moderate — careful trustee coordination required."
+    "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 93,403 gas, OAL: 1780 ms). Note: OC = Moderate — careful trustee coordination required."
   }
 }

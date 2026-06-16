@@ -40,7 +40,7 @@ export const generateBabyJubJubKeys = (eddsa) => {
 };
 
 async function main() {
-  const NUM_VOTERS_TO_GENERATE = 1000000;
+  const NUM_VOTERS_TO_GENERATE = parseInt(process.env.DEMO_N) || 10;
   const ELECTION_ID = "ELC2026";
 
   const __filename = fileURLToPath(import.meta.url);

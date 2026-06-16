@@ -358,5 +358,845 @@
       "recommended": "C",
       "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 103,106 gas, OAL: 1639 ms). Note: OC = Moderate — careful trustee coordination required."
     }
+  },
+  {
+    "runId": "run-1781360839980",
+    "createdAt": "2026-06-13T14:27:19.980Z",
+    "config": {
+      "n": 1000,
+      "q": 10,
+      "s": 2,
+      "VS": "Medium",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781360392072",
+    "createdAt": "2026-06-13T14:19:52.072Z",
+    "config": {
+      "n": 10000,
+      "q": 10,
+      "s": 2,
+      "VS": "Medium",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781510405463",
+    "createdAt": "2026-06-15T08:00:05.463Z",
+    "config": {
+      "n": 10,
+      "q": 2,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "B": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 261901,
+            "totalGasUsed": 2619012,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1619.48,
+            "averageWitnessMs": 188.49,
+            "averageProofMs": 1212.76
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 4,
+              "percentage": 40
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 6,
+              "percentage": 60
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53983,
+            "totalGasUsed": 539834,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1550.52,
+            "averageWitnessMs": 195.32,
+            "averageProofMs": 1178.38
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 4,
+              "percentage": 40
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 6,
+              "percentage": 60
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "C": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 93403,
+            "totalGasUsed": 934034,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1780.3,
+            "averageWitnessMs": 195.13,
+            "averageProofMs": 1211.65
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 6,
+              "percentage": 60
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 4,
+              "percentage": 40
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 93,403 gas, OAL: 1780 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781365380273",
+    "createdAt": "2026-06-13T15:43:00.273Z",
+    "config": {
+      "n": 25,
+      "q": 3,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781366005581",
+    "createdAt": "2026-06-13T15:53:25.581Z",
+    "config": {
+      "n": 24,
+      "q": 4,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781369484143",
+    "createdAt": "2026-06-13T16:51:24.143Z",
+    "config": {
+      "n": 2,
+      "q": 5,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781371417989",
+    "createdAt": "2026-06-13T17:23:37.989Z",
+    "config": {
+      "n": 2,
+      "q": 5,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53987,
+            "totalGasUsed": 107974,
+            "submittedBallots": 2,
+            "acceptedBallots": 2,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 3186.16,
+            "averageWitnessMs": 298.35,
+            "averageProofMs": 2572.92
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 0,
+              "percentage": 0
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 0,
+              "percentage": 0
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 1,
+              "percentage": 25
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 1,
+              "percentage": 25
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 2,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "B": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781371493366",
+    "createdAt": "2026-06-13T17:24:53.366Z",
+    "config": {
+      "n": 2,
+      "q": 7,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "B": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781371812634",
+    "createdAt": "2026-06-13T17:30:12.634Z",
+    "config": {
+      "n": 16,
+      "q": 2,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "B": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 261898,
+            "totalGasUsed": 4190364,
+            "submittedBallots": 16,
+            "acceptedBallots": 16,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1530.15,
+            "averageWitnessMs": 194.06,
+            "averageProofMs": 1151.92
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 16,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 16,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781372185390",
+    "createdAt": "2026-06-13T17:36:25.390Z",
+    "config": {
+      "n": 16,
+      "q": 3,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "C": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 93391,
+            "totalGasUsed": 1494255,
+            "submittedBallots": 16,
+            "acceptedBallots": 16,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1940.13,
+            "averageWitnessMs": 231.98,
+            "averageProofMs": 1369.76
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 3,
+              "percentage": 18.8
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 4,
+              "percentage": 25
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 9,
+              "percentage": 56.3
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 93,391 gas, OAL: 1940 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781417107457",
+    "createdAt": "2026-06-14T06:05:07.457Z",
+    "config": {
+      "n": 10,
+      "q": 5,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53985,
+            "totalGasUsed": 539846,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 2617.42,
+            "averageWitnessMs": 273.49,
+            "averageProofMs": 2067.31
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 1,
+              "percentage": 10
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 3,
+              "percentage": 30
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "C": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 93393,
+            "totalGasUsed": 933934,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 2716.78,
+            "averageWitnessMs": 269.88,
+            "averageProofMs": 2021.1
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 4,
+              "percentage": 40
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 0,
+              "percentage": 0
+            }
+          ],
+          "revealedOnChain": true
+        }
+      },
+      "B": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 261895,
+            "totalGasUsed": 2618952,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 2710.34,
+            "averageWitnessMs": 271.58,
+            "averageProofMs": 2095.5
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 1,
+              "percentage": 10
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 3,
+              "percentage": 30
+            },
+            {
+              "candidateId": 3,
+              "candidateName": "Candidate 3",
+              "votes": 2,
+              "percentage": 20
+            },
+            {
+              "candidateId": 4,
+              "candidateName": "Candidate 4",
+              "votes": 4,
+              "percentage": 40
+            },
+            {
+              "candidateId": 5,
+              "candidateName": "Candidate 5",
+              "votes": 0,
+              "percentage": 0
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "A",
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms)."
+    }
+  },
+  {
+    "runId": "run-1781375286661",
+    "createdAt": "2026-06-13T18:28:06.661Z",
+    "config": {
+      "n": 10,
+      "q": 3,
+      "s": 1,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "B": {
+        "metrics": null,
+        "results": null
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
+  },
+  {
+    "runId": "run-1781376305968",
+    "createdAt": "2026-06-13T18:45:05.968Z",
+    "config": {
+      "n": 10,
+      "q": 2,
+      "s": 2,
+      "VS": "Small",
+      "threshold": {
+        "trusteeCount": 5,
+        "approvalThreshold": 3
+      }
+    },
+    "modesData": {
+      "B": {
+        "metrics": null,
+        "results": null
+      },
+      "A": {
+        "status": "completed",
+        "metrics": {
+          "BVC": {
+            "averageGasPerAcceptedBallot": 53982,
+            "totalGasUsed": 539822,
+            "submittedBallots": 10,
+            "acceptedBallots": 10,
+            "failedBallots": 0
+          },
+          "OAL": {
+            "averageEndToEndMs": 1633.05,
+            "averageWitnessMs": 205.9,
+            "averageProofMs": 1254.04
+          }
+        },
+        "results": {
+          "finalCounts": [
+            {
+              "candidateId": 1,
+              "candidateName": "Candidate 1",
+              "votes": 10,
+              "percentage": 50
+            },
+            {
+              "candidateId": 2,
+              "candidateName": "Candidate 2",
+              "votes": 10,
+              "percentage": 50
+            }
+          ],
+          "revealedOnChain": true
+        }
+      }
+    },
+    "recommendation": {
+      "feasibleModes": [
+        "B",
+        "C"
+      ],
+      "eliminatedModes": [
+        {
+          "mode": "A",
+          "reason": "BATD = Authority-constrained eliminates Mode A"
+        }
+      ],
+      "recommended": "C",
+      "reasoning": "Mode C recommended — lowest weighted cost among feasible modes (BVC: 83,855 gas, OAL: 1450 ms). Note: OC = Moderate — careful trustee coordination required."
+    }
   }
 ]

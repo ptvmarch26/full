@@ -10,13 +10,15 @@ const { performance } = require("perf_hooks");
 const { getContract } = require("../configs/blockchain");
 const { uploadToIPFS } = require("../utils/ipfs");
 
+const NUM_VOTERS = process.env.DEMO_N || "10";
+
 const VOTER_DB_FILE = path.join(
   __dirname,
-  "../data/voter_data_for_db_1000000.json",
+  `../data/voter_data_for_db_${NUM_VOTERS}.json`,
 );
 const VOTER_SECRETS_FILE = path.join(
   __dirname,
-  "../data/voter_secrets_for_script_1000000.json",
+  `../data/voter_secrets_for_script_${NUM_VOTERS}.json`,
 );
 const DKG_PUBLIC_KEY_PATH = path.join(
   __dirname,
@@ -102,15 +104,16 @@ function resetCSV() {
 }
 
 function appendCSVData(data) {
-  const row = [
-    data.voter,
-    data.mode,
-    data.gasUsed,
-    data.endToEndTimeMs,
-    data.witnessTimeMs,
-    data.proofGenerationTimeMs,
-    data.resultCode,
-  ].join(",") + "\n";
+  const row =
+    [
+      data.voter,
+      data.mode,
+      data.gasUsed,
+      data.endToEndTimeMs,
+      data.witnessTimeMs,
+      data.proofGenerationTimeMs,
+      data.resultCode,
+    ].join(",") + "\n";
 
   fs.appendFileSync(CSV_FILE, row, "utf8");
 }
@@ -226,7 +229,11 @@ function createVoteSubmitter(votingContract, vKey) {
   const seen = new Set();
 
   return async function submitVoteLocal(proof, publicSignals, voteData) {
+    const verifyStart = performance.now();
     const isValid = await groth16.verify(vKey, publicSignals, proof);
+    const verifyEnd = performance.now();
+    console.log(`[vote.js] Local verify time: ${(verifyEnd - verifyStart).toFixed(2)} ms`);
+
     if (!isValid) {
       return { code: 1, gasUsed: 0n };
     }
@@ -238,12 +245,19 @@ function createVoteSubmitter(votingContract, vKey) {
 
     seen.add(key);
 
+    const sendStart = performance.now();
     const tx = await votingContract.submitVote(
       toBytes32(voteData.nullifier),
       toBytes32(publicSignals[1]),
       voteData.ipfs_cid,
     );
+    const sendEnd = performance.now();
+    console.log(`[vote.js] submitVote sent: ${(sendEnd - sendStart).toFixed(2)} ms, hash=${tx.hash}`);
+
+    const waitStart = performance.now();
     const receipt = await tx.wait();
+    const waitEnd = performance.now();
+    console.log(`[vote.js] tx.wait time: ${(waitEnd - waitStart).toFixed(2)} ms, block=${receipt.blockNumber}`);
 
     return {
       code: 0,
@@ -253,7 +267,9 @@ function createVoteSubmitter(votingContract, vKey) {
 }
 
 async function main() {
-  console.log(`[vote.js] NUM_CANDIDATES=${NUM_CANDIDATES} NUM_SELECTIONS=${NUM_SELECTIONS} VOTES_TO_SIMULATE=${VOTES_TO_SIMULATE}`);
+  console.log(
+    `[vote.js] NUM_CANDIDATES=${NUM_CANDIDATES} NUM_SELECTIONS=${NUM_SELECTIONS} VOTES_TO_SIMULATE=${VOTES_TO_SIMULATE}`,
+  );
   if (!fs.existsSync(DKG_PUBLIC_KEY_PATH)) {
     throw new Error("public_key.json not found. Run register.js first.");
   }
@@ -343,30 +359,31 @@ async function main() {
           C2y,
         };
 
-        const {
-          proof,
-          publicSignals,
-          witnessTimeMs,
-          proofGenerationTimeMs,
-        } = await generateWitnessAndProof(
-          witnessInput,
-          voterSecret.hashed_key,
-          i,
-        );
+        const { proof, publicSignals, witnessTimeMs, proofGenerationTimeMs } =
+          await generateWitnessAndProof(
+            witnessInput,
+            voterSecret.hashed_key,
+            i,
+          );
 
         const voteData = {
           election_id: ELECTION_ID,
           nullifier: publicSignals[0],
         };
 
-        const cid = await uploadToIPFS(
-          JSON.stringify({
-            C1x,
-            C1y,
-            C2x,
-            C2y,
-          }),
-        );
+const ipfsStart = performance.now();
+
+const cid = await uploadToIPFS(
+  JSON.stringify({
+    C1x,
+    C1y,
+    C2x,
+    C2y,
+  }),
+);
+
+const ipfsEnd = performance.now();
+console.log(`[vote.js] IPFS upload time: ${(ipfsEnd - ipfsStart).toFixed(2)} ms, cid=${cid}`);
 
         voteData.ipfs_cid = `ipfs://${cid}`;
 
@@ -411,12 +428,20 @@ async function main() {
         } else {
           failedCount++;
         }
-        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
+        console.log(
+          `Vote ${
+            i + 1
+          }/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`,
+        );
       } catch (error) {
         failedCount++;
         console.error(`Vote ${i + 1} failed: ${error.message}`);
         if (failedCount === 1) console.error(`Vote 1 stack: ${error.stack}`);
-        console.log(`Vote ${i + 1}/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`);
+        console.log(
+          `Vote ${
+            i + 1
+          }/${totalToRun}: accepted=${submittedCount}, failed=${failedCount}`,
+        );
       }
     }
   } finally {
@@ -427,14 +452,11 @@ async function main() {
     submittedCount > 0 ? totalEndToEndTime / submittedCount : 0;
   const averageWitness =
     submittedCount > 0 ? totalWitnessTime / submittedCount : 0;
-  const averageProof =
-    submittedCount > 0 ? totalProofTime / submittedCount : 0;
+  const averageProof = submittedCount > 0 ? totalProofTime / submittedCount : 0;
 
   console.log(`Average end-to-end time: ${averageEndToEnd.toFixed(2)} ms`);
   console.log(`Average witness time: ${averageWitness.toFixed(2)} ms`);
-  console.log(
-    `Average proof generation time: ${averageProof.toFixed(2)} ms`,
-  );
+  console.log(`Average proof generation time: ${averageProof.toFixed(2)} ms`);
   console.log(
     `Voting finished. Submitted: ${submittedCount}, Failed: ${failedCount}`,
   );

@@ -10,13 +10,15 @@ const { performance } = require("perf_hooks");
 const { getContract } = require("../configs/blockchain");
 const { uploadToIPFS } = require("../utils/ipfs");
 
+const NUM_VOTERS = process.env.DEMO_N || "10";
+
 const VOTER_DB_FILE = path.join(
   __dirname,
-  "../data/voter_data_for_db_1000.json",
+  `../data/voter_data_for_db_${NUM_VOTERS}.json`,
 );
 const VOTER_SECRETS_FILE = path.join(
   __dirname,
-  "../data/voter_secrets_for_script_1000.json",
+  `../data/voter_secrets_for_script_${NUM_VOTERS}.json`,
 );
 const DKG_PUBLIC_KEY_PATH = path.join(
   __dirname,

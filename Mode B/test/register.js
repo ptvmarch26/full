@@ -8,9 +8,11 @@ const { getContract } = require("../configs/blockchain");
 
 const { ethers } = hre;
 
+const NUM_VOTERS = process.env.DEMO_N || "10";
+
 const VOTER_DB_FILE = path.join(
   __dirname,
-  "../data/voter_data_for_db_1000.json",
+  `../data/voter_data_for_db_${NUM_VOTERS}.json`,
 );
 const DKG_FOLDER = path.join(__dirname, "../data/dkgKeys");
 

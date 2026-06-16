@@ -96,4 +96,4 @@ template BatchTallyValidity(nTrustees, nCandidates) {
     valid <== 1;
 }
 
-component main = BatchTallyValidity(2, 10);
+component main = BatchTallyValidity(2, 2);

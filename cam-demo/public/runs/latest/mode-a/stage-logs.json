@@ -2,427 +2,1435 @@
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "$ circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
-    "timestamp": "2026-06-13T08:28:32.958Z"
+    "message": "$ circom circuits/VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits/build/VoteProofCombined",
+    "timestamp": "2026-06-15T07:53:38.941Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "Error: Parse error on line 1:",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32mtemplate instances\u001b[0m: 169",
+    "timestamp": "2026-06-15T07:53:39.606Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "pragma circom 2.1.5;\r\rinclude \"./",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "non-linear constraints: 9465",
+    "timestamp": "2026-06-15T07:53:41.849Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "---------------^",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "linear constraints: 0",
+    "timestamp": "2026-06-15T07:53:41.850Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "public inputs: 0",
+    "timestamp": "2026-06-15T07:53:41.854Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Parser.parseError (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:620:21)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "public outputs: 2",
+    "timestamp": "2026-06-15T07:53:41.855Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Parser.parse (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\parser\\jaz.js:687:22)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "private inputs: 26",
+    "timestamp": "2026-06-15T07:53:41.856Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at constructionPhase (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\construction_phase.js:79:22)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "private outputs: 0",
+    "timestamp": "2026-06-15T07:53:41.856Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at compile (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\src\\compiler.js:71:5)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "wires: 9475",
+    "timestamp": "2026-06-15T07:53:41.857Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at run (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:119:11)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "labels: 54747",
+    "timestamp": "2026-06-15T07:53:41.857Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Object.<anonymous> (C:\\Users\\admin\\AppData\\Roaming\\npm\\node_modules\\circom\\cli.js:140:1)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/VoteProofCombined/VoteProofCombined.r1cs",
+    "timestamp": "2026-06-15T07:53:41.858Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Module._compile (node:internal/modules/cjs/loader:1469:14)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/VoteProofCombined/VoteProofCombined.sym",
+    "timestamp": "2026-06-15T07:53:41.893Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/VoteProofCombined/VoteProofCombined_js/VoteProofCombined.wasm",
+    "timestamp": "2026-06-15T07:53:43.505Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Module.load (node:internal/modules/cjs/loader:1288:32)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32mEverything went okay, circom safe\u001b[0m",
+    "timestamp": "2026-06-15T07:53:43.553Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "at Module._load (node:internal/modules/cjs/loader:1104:12)",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "$ npx snarkjs r1cs info circuits/build/VoteProofCombined/VoteProofCombined.r1cs",
+    "timestamp": "2026-06-15T07:53:43.573Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "Parse error on line 1:",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Curve: bn-128",
+    "timestamp": "2026-06-15T07:53:45.133Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "pragma circom 2.1.5;\r\rinclude \"./",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Wires: 9475",
+    "timestamp": "2026-06-15T07:53:45.134Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "---------------^",
-    "timestamp": "2026-06-13T08:28:33.105Z"
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Constraints: 9465",
+    "timestamp": "2026-06-15T07:53:45.138Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "Expecting 'EOF', 'function', 'IDENTIFIER', '(', ')', 'template', ',', 'if', 'else', 'for', ';', 'while', 'do', 'compute', 'return', 'include', '{', '}', '==>', '-->', '===', '?', ':', '||', '&&', '|', '^', '&', '==', '!=', '<=', '>=', '<', '>', '<<', '>>', '+', '-', '*', '/', '\\\\', '%', '**', '++', '--', '!', '~', 'DECNUMBER', 'HEXNUMBER', 'var', 'signal', 'component', '[', ']', got '.'",
-    "timestamp": "2026-06-13T08:28:33.105Z"
-  },
-  {
-    "stage": "compile",
-    "type": "stderr",
-    "message": "ERROR: Command failed: circom circuits\\VoteProofCombined.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits\\build\\VoteProofCombined",
-    "timestamp": "2026-06-13T08:28:33.114Z"
-  },
-  {
-    "stage": "compile",
-    "type": "warn",
-    "message": "circom v2 not available; using pre-compiled circuit (q=2, tvTrustees=2). Install circom v2 to use any q/threshold.",
-    "timestamp": "2026-06-13T08:28:33.166Z"
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Private Inputs: 26",
+    "timestamp": "2026-06-15T07:53:45.139Z"
   },
   {
     "stage": "compile",
     "type": "stdout",
-    "message": "Nothing to compile",
-    "timestamp": "2026-06-13T08:28:34.684Z"
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Public Inputs: 0",
+    "timestamp": "2026-06-15T07:53:45.146Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Labels: 54747",
+    "timestamp": "2026-06-15T07:53:45.147Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Outputs: 2",
+    "timestamp": "2026-06-15T07:53:45.148Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs groth16 setup circuits/build/VoteProofCombined/VoteProofCombined.r1cs circuits/powersOfTau28_hez_final_16.ptau circuits/build/VoteProofCombined/VoteProofCombined_0000.zkey",
+    "timestamp": "2026-06-15T07:53:45.253Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading r1cs",
+    "timestamp": "2026-06-15T07:53:46.663Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG1",
+    "timestamp": "2026-06-15T07:53:46.686Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG2",
+    "timestamp": "2026-06-15T07:53:46.688Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading alphatauG1",
+    "timestamp": "2026-06-15T07:53:46.706Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading betatauG1",
+    "timestamp": "2026-06-15T07:53:46.719Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit hash:",
+    "timestamp": "2026-06-15T07:54:06.318Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "828525c3 255f9867 2f920567 8ec091e3",
+    "timestamp": "2026-06-15T07:54:06.319Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "5bf87977 c71e5a02 4250ed5f f7a94f70",
+    "timestamp": "2026-06-15T07:54:06.320Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "0b934937 e3860d96 1af3eab6 0d40c39e",
+    "timestamp": "2026-06-15T07:54:06.321Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "19677109 8b6485d9 5ea1e313 67ab6405",
+    "timestamp": "2026-06-15T07:54:06.323Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey contribute circuits/build/VoteProofCombined/VoteProofCombined_0000.zkey circuits/build/VoteProofCombined/VoteProofCombined.zkey --name=key1 -v -e=VoteProofCombined-1781510046405",
+    "timestamp": "2026-06-15T07:54:06.405Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[36;22m[DEBUG] \u001b[39;1msnarkJS\u001b[0m: Applying key: L Section: 0/9472",
+    "timestamp": "2026-06-15T07:54:07.597Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[36;22m[DEBUG] \u001b[39;1msnarkJS\u001b[0m: Applying key: H Section: 0/16384",
+    "timestamp": "2026-06-15T07:54:08.879Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit Hash:",
+    "timestamp": "2026-06-15T07:54:10.795Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "828525c3 255f9867 2f920567 8ec091e3",
+    "timestamp": "2026-06-15T07:54:10.796Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "5bf87977 c71e5a02 4250ed5f f7a94f70",
+    "timestamp": "2026-06-15T07:54:10.798Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "0b934937 e3860d96 1af3eab6 0d40c39e",
+    "timestamp": "2026-06-15T07:54:10.801Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "19677109 8b6485d9 5ea1e313 67ab6405",
+    "timestamp": "2026-06-15T07:54:10.803Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Contribution Hash:",
+    "timestamp": "2026-06-15T07:54:10.804Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "f7ba5b2c 2f9f6f2f 6017dfac aadb338e",
+    "timestamp": "2026-06-15T07:54:10.804Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "c71bd832 831a9298 06f36f7f 2fe0d077",
+    "timestamp": "2026-06-15T07:54:10.805Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "662324f1 8034587e 3014491e 22569161",
+    "timestamp": "2026-06-15T07:54:10.805Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "82f34d10 442a8303 4a278d28 958503e3",
+    "timestamp": "2026-06-15T07:54:10.806Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey export verificationkey circuits/build/VoteProofCombined/VoteProofCombined.zkey circuits/build/VoteProofCombined/VoteProofCombined_vkey.json",
+    "timestamp": "2026-06-15T07:54:10.847Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY STARTED",
+    "timestamp": "2026-06-15T07:54:11.504Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: > Detected protocol: groth16",
+    "timestamp": "2026-06-15T07:54:11.874Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY FINISHED",
+    "timestamp": "2026-06-15T07:54:11.884Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey verify circuits/build/VoteProofCombined/VoteProofCombined.r1cs circuits/powersOfTau28_hez_final_16.ptau circuits/build/VoteProofCombined/VoteProofCombined.zkey",
+    "timestamp": "2026-06-15T07:54:12.013Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading r1cs",
+    "timestamp": "2026-06-15T07:54:12.990Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG1",
+    "timestamp": "2026-06-15T07:54:13.015Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG2",
+    "timestamp": "2026-06-15T07:54:13.017Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading alphatauG1",
+    "timestamp": "2026-06-15T07:54:13.032Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading betatauG1",
+    "timestamp": "2026-06-15T07:54:13.044Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit hash:",
+    "timestamp": "2026-06-15T07:54:33.061Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "828525c3 255f9867 2f920567 8ec091e3",
+    "timestamp": "2026-06-15T07:54:33.062Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "5bf87977 c71e5a02 4250ed5f f7a94f70",
+    "timestamp": "2026-06-15T07:54:33.062Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "0b934937 e3860d96 1af3eab6 0d40c39e",
+    "timestamp": "2026-06-15T07:54:33.063Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "19677109 8b6485d9 5ea1e313 67ab6405",
+    "timestamp": "2026-06-15T07:54:33.063Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit Hash:",
+    "timestamp": "2026-06-15T07:54:31.680Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "828525c3 255f9867 2f920567 8ec091e3",
+    "timestamp": "2026-06-15T07:54:31.681Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "5bf87977 c71e5a02 4250ed5f f7a94f70",
+    "timestamp": "2026-06-15T07:54:31.683Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "0b934937 e3860d96 1af3eab6 0d40c39e",
+    "timestamp": "2026-06-15T07:54:31.684Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "19677109 8b6485d9 5ea1e313 67ab6405",
+    "timestamp": "2026-06-15T07:54:31.684Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: -------------------------",
+    "timestamp": "2026-06-15T07:54:31.685Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: contribution #1 key1:",
+    "timestamp": "2026-06-15T07:54:31.685Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "f7ba5b2c 2f9f6f2f 6017dfac aadb338e",
+    "timestamp": "2026-06-15T07:54:31.686Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "c71bd832 831a9298 06f36f7f 2fe0d077",
+    "timestamp": "2026-06-15T07:54:31.686Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "662324f1 8034587e 3014491e 22569161",
+    "timestamp": "2026-06-15T07:54:31.687Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "82f34d10 442a8303 4a278d28 958503e3",
+    "timestamp": "2026-06-15T07:54:31.687Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: -------------------------",
+    "timestamp": "2026-06-15T07:54:31.687Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: ZKey Ok!",
+    "timestamp": "2026-06-15T07:54:31.688Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ circom circuits/TallyValidity.circom --r1cs --wasm --sym -l node_modules -l circuits -o circuits/build/TallyValidity",
+    "timestamp": "2026-06-15T07:54:31.770Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32mtemplate instances\u001b[0m: 14",
+    "timestamp": "2026-06-15T07:54:31.880Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "non-linear constraints: 10240",
+    "timestamp": "2026-06-15T07:54:32.245Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "linear constraints: 1",
+    "timestamp": "2026-06-15T07:54:32.246Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "public inputs: 0",
+    "timestamp": "2026-06-15T07:54:32.246Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "public outputs: 1",
+    "timestamp": "2026-06-15T07:54:32.248Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "private inputs: 18",
+    "timestamp": "2026-06-15T07:54:32.249Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "private outputs: 0",
+    "timestamp": "2026-06-15T07:54:32.253Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "wires: 10252",
+    "timestamp": "2026-06-15T07:54:32.256Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "labels: 32630",
+    "timestamp": "2026-06-15T07:54:32.257Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/TallyValidity/TallyValidity.r1cs",
+    "timestamp": "2026-06-15T07:54:32.258Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/TallyValidity/TallyValidity.sym",
+    "timestamp": "2026-06-15T07:54:32.277Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32mWritten successfully:\u001b[0m circuits/build/TallyValidity/TallyValidity_js/TallyValidity.wasm",
+    "timestamp": "2026-06-15T07:54:32.308Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32mEverything went okay, circom safe\u001b[0m",
+    "timestamp": "2026-06-15T07:54:32.309Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs r1cs info circuits/build/TallyValidity/TallyValidity.r1cs",
+    "timestamp": "2026-06-15T07:54:32.315Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Curve: bn-128",
+    "timestamp": "2026-06-15T07:54:33.547Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Wires: 10252",
+    "timestamp": "2026-06-15T07:54:33.547Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Constraints: 10241",
+    "timestamp": "2026-06-15T07:54:33.548Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Private Inputs: 18",
+    "timestamp": "2026-06-15T07:54:33.548Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Public Inputs: 0",
+    "timestamp": "2026-06-15T07:54:33.549Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Labels: 32630",
+    "timestamp": "2026-06-15T07:54:33.550Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: # of Outputs: 1",
+    "timestamp": "2026-06-15T07:54:33.550Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs groth16 setup circuits/build/TallyValidity/TallyValidity.r1cs circuits/powersOfTau28_hez_final_16.ptau circuits/build/TallyValidity/TallyValidity_0000.zkey",
+    "timestamp": "2026-06-15T07:54:33.603Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading r1cs",
+    "timestamp": "2026-06-15T07:54:34.700Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG1",
+    "timestamp": "2026-06-15T07:54:34.780Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG2",
+    "timestamp": "2026-06-15T07:54:34.790Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading alphatauG1",
+    "timestamp": "2026-06-15T07:54:34.822Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading betatauG1",
+    "timestamp": "2026-06-15T07:54:34.841Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit hash:",
+    "timestamp": "2026-06-15T07:54:46.940Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "faa4a3eb a22ee7c2 945804c9 79e9f5e6",
+    "timestamp": "2026-06-15T07:54:46.940Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "3af03caa ca23d152 27d7c6f9 ca1d7399",
+    "timestamp": "2026-06-15T07:54:46.942Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "8a3c3214 d895c1c1 48ee6204 e81da22d",
+    "timestamp": "2026-06-15T07:54:46.943Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "a3c1e19f aae399a8 514b82cd 05daa35e",
+    "timestamp": "2026-06-15T07:54:46.945Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey contribute circuits/build/TallyValidity/TallyValidity_0000.zkey circuits/build/TallyValidity/TallyValidity.zkey --name=key1 -v -e=TallyValidity-1781510087034",
+    "timestamp": "2026-06-15T07:54:47.035Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[36;22m[DEBUG] \u001b[39;1msnarkJS\u001b[0m: Applying key: L Section: 0/10250",
+    "timestamp": "2026-06-15T07:54:48.196Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[36;22m[DEBUG] \u001b[39;1msnarkJS\u001b[0m: Applying key: H Section: 0/16384",
+    "timestamp": "2026-06-15T07:54:49.199Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit Hash:",
+    "timestamp": "2026-06-15T07:54:50.799Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "faa4a3eb a22ee7c2 945804c9 79e9f5e6",
+    "timestamp": "2026-06-15T07:54:50.800Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "3af03caa ca23d152 27d7c6f9 ca1d7399",
+    "timestamp": "2026-06-15T07:54:50.802Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "8a3c3214 d895c1c1 48ee6204 e81da22d",
+    "timestamp": "2026-06-15T07:54:50.803Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "a3c1e19f aae399a8 514b82cd 05daa35e",
+    "timestamp": "2026-06-15T07:54:50.805Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Contribution Hash:",
+    "timestamp": "2026-06-15T07:54:50.806Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "630fcc0d 17e380e1 da010224 0b8f8205",
+    "timestamp": "2026-06-15T07:54:50.806Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "e832346a 82516a2f 6f933c4b 9d787b20",
+    "timestamp": "2026-06-15T07:54:50.807Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "6e00cc34 b0d80d3f 7990c56c 8496dec7",
+    "timestamp": "2026-06-15T07:54:50.808Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "57353947 9198906d 7f17e870 9fe133cf",
+    "timestamp": "2026-06-15T07:54:50.809Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey export verificationkey circuits/build/TallyValidity/TallyValidity.zkey circuits/build/TallyValidity/TallyValidity_vkey.json",
+    "timestamp": "2026-06-15T07:54:50.847Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY STARTED",
+    "timestamp": "2026-06-15T07:54:51.346Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: > Detected protocol: groth16",
+    "timestamp": "2026-06-15T07:54:51.700Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY FINISHED",
+    "timestamp": "2026-06-15T07:54:51.709Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey verify circuits/build/TallyValidity/TallyValidity.r1cs circuits/powersOfTau28_hez_final_16.ptau circuits/build/TallyValidity/TallyValidity.zkey",
+    "timestamp": "2026-06-15T07:54:51.793Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading r1cs",
+    "timestamp": "2026-06-15T07:54:52.828Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG1",
+    "timestamp": "2026-06-15T07:54:52.851Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading tauG2",
+    "timestamp": "2026-06-15T07:54:52.853Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading alphatauG1",
+    "timestamp": "2026-06-15T07:54:52.873Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Reading betatauG1",
+    "timestamp": "2026-06-15T07:54:52.889Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit hash:",
+    "timestamp": "2026-06-15T07:55:02.204Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "faa4a3eb a22ee7c2 945804c9 79e9f5e6",
+    "timestamp": "2026-06-15T07:55:02.205Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "3af03caa ca23d152 27d7c6f9 ca1d7399",
+    "timestamp": "2026-06-15T07:55:02.205Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "8a3c3214 d895c1c1 48ee6204 e81da22d",
+    "timestamp": "2026-06-15T07:55:02.206Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "a3c1e19f aae399a8 514b82cd 05daa35e",
+    "timestamp": "2026-06-15T07:55:02.206Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: Circuit Hash:",
+    "timestamp": "2026-06-15T07:55:02.955Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "faa4a3eb a22ee7c2 945804c9 79e9f5e6",
+    "timestamp": "2026-06-15T07:55:02.955Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "3af03caa ca23d152 27d7c6f9 ca1d7399",
+    "timestamp": "2026-06-15T07:55:02.956Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "8a3c3214 d895c1c1 48ee6204 e81da22d",
+    "timestamp": "2026-06-15T07:55:02.957Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "a3c1e19f aae399a8 514b82cd 05daa35e",
+    "timestamp": "2026-06-15T07:55:02.957Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: -------------------------",
+    "timestamp": "2026-06-15T07:55:02.958Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: contribution #1 key1:",
+    "timestamp": "2026-06-15T07:55:02.958Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "630fcc0d 17e380e1 da010224 0b8f8205",
+    "timestamp": "2026-06-15T07:55:02.958Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "e832346a 82516a2f 6f933c4b 9d787b20",
+    "timestamp": "2026-06-15T07:55:02.959Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "6e00cc34 b0d80d3f 7990c56c 8496dec7",
+    "timestamp": "2026-06-15T07:55:02.959Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "57353947 9198906d 7f17e870 9fe133cf",
+    "timestamp": "2026-06-15T07:55:02.960Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: -------------------------",
+    "timestamp": "2026-06-15T07:55:02.960Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: ZKey Ok!",
+    "timestamp": "2026-06-15T07:55:02.961Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "$ npx snarkjs zkey export solidityverifier circuits/build/TallyValidity/TallyValidity.zkey contracts/TallyValidityVerifier.sol",
+    "timestamp": "2026-06-15T07:55:03.061Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY STARTED",
+    "timestamp": "2026-06-15T07:55:03.562Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: > Detected protocol: groth16",
+    "timestamp": "2026-06-15T07:55:03.866Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "\u001b[32;22m[INFO]  \u001b[39;1msnarkJS\u001b[0m: EXPORT VERIFICATION KEY FINISHED",
+    "timestamp": "2026-06-15T07:55:03.874Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Solidity contract exported to contracts/TallyValidityVerifier.sol",
+    "timestamp": "2026-06-15T07:55:03.923Z"
+  },
+  {
+    "stage": "compile",
+    "type": "stdout",
+    "message": "Compiled 2 Solidity files successfully (evm target: paris).",
+    "timestamp": "2026-06-15T07:55:05.266Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "Deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    "timestamp": "2026-06-13T08:28:37.513Z"
+    "timestamp": "2026-06-15T07:55:07.413Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "E_Voting: 0x5FbDB2315678afecb367f032d93F642f64180aa3",
-    "timestamp": "2026-06-13T08:28:37.714Z"
+    "timestamp": "2026-06-15T07:55:07.547Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
     "message": "TallyVerifierOnChain: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-    "timestamp": "2026-06-13T08:28:37.714Z"
+    "timestamp": "2026-06-15T07:55:07.547Z"
   },
   {
     "stage": "setup",
     "type": "stdout",
-    "message": "Deployment file: D:\\KLTN\\full\\Mode A\\data\\deployments.json",
-    "timestamp": "2026-06-13T08:28:37.714Z"
+    "message": "Deployment file: /home/phithong/zk-voting/full/Mode A/data/deployments.json",
+    "timestamp": "2026-06-15T07:55:07.548Z"
   },
   {
     "stage": "prepare_voters",
     "type": "stdout",
-    "message": "[gen_demo_voters] N=20 depth=20",
-    "timestamp": "2026-06-13T08:28:38.423Z"
+    "message": "⚙️  Initializing circomlibjs (eddsa + poseidon)...",
+    "timestamp": "2026-06-15T07:55:08.147Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stderr",
+    "message": "(node:9104) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/phithong/zk-voting/full/Mode%20A/scripts/gen_voter.js is not specified and it doesn't parse as CommonJS.",
+    "timestamp": "2026-06-15T07:55:08.393Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stderr",
+    "message": "Reparsing as ES module because module syntax was detected. This incurs a performance overhead.",
+    "timestamp": "2026-06-15T07:55:08.395Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stderr",
+    "message": "To eliminate this warning, add \"type\": \"module\" to /home/phithong/zk-voting/full/Mode A/package.json.",
+    "timestamp": "2026-06-15T07:55:08.396Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stderr",
+    "message": "(Use `node --trace-warnings ...` to show where the warning was created)",
+    "timestamp": "2026-06-15T07:55:08.399Z"
   },
   {
     "stage": "prepare_voters",
     "type": "stdout",
-    "message": "[gen_demo_voters] root=12643235643271494925... done.",
-    "timestamp": "2026-06-13T08:28:39.248Z"
+    "message": "Initialization complete.",
+    "timestamp": "2026-06-15T07:55:09.757Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "Generating data for 10 voters...",
+    "timestamp": "2026-06-15T07:55:09.759Z"
+  },
+  {
+    "stage": "prepare_voters",
+    "type": "stdout",
+    "message": "Build merkle tree completed",
+    "timestamp": "2026-06-15T07:55:10.959Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Setup completed.",
-    "timestamp": "2026-06-13T08:28:42.289Z"
+    "timestamp": "2026-06-15T07:55:13.758Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
-    "message": "Merkle root published for 20 voters.",
-    "timestamp": "2026-06-13T08:28:42.289Z"
+    "message": "Merkle root published for 10 voters.",
+    "timestamp": "2026-06-15T07:55:13.759Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Aggregator: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
-    "timestamp": "2026-06-13T08:28:42.289Z"
+    "timestamp": "2026-06-15T07:55:13.759Z"
   },
   {
     "stage": "registration",
     "type": "stdout",
     "message": "Trustees registered: 3",
-    "timestamp": "2026-06-13T08:28:42.289Z"
+    "timestamp": "2026-06-15T07:55:13.760Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "[vote.js] NUM_CANDIDATES=2 NUM_SELECTIONS=2 VOTES_TO_SIMULATE=20",
-    "timestamp": "2026-06-13T08:28:45.051Z"
+    "message": "[vote.js] NUM_CANDIDATES=2 NUM_SELECTIONS=1 VOTES_TO_SIMULATE=10",
+    "timestamp": "2026-06-15T07:55:16.561Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Starting vote submission: 20 votes total",
-    "timestamp": "2026-06-13T08:28:45.818Z"
+    "message": "Starting vote submission: 10 votes total",
+    "timestamp": "2026-06-15T07:55:17.404Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 1/20: accepted=1, failed=0",
-    "timestamp": "2026-06-13T08:28:52.530Z"
+    "message": "[vote.js] IPFS upload time: 79.77 ms, cid=QmeUcXFKQrHbt8xsFPGReW2uQ6CqQsVtujaqoJFKKQW4VM",
+    "timestamp": "2026-06-15T07:55:20.079Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 2/20: accepted=2, failed=0",
-    "timestamp": "2026-06-13T08:28:53.953Z"
+    "message": "[vote.js] Local verify time: 28.78 ms",
+    "timestamp": "2026-06-15T07:55:20.108Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 3/20: accepted=3, failed=0",
-    "timestamp": "2026-06-13T08:28:55.170Z"
+    "message": "[vote.js] submitVote sent: 31.78 ms, hash=0x53f405f9e4041eb0fbf88249eab739659afbdb6edb5c5e465242bb8cc7a385b7",
+    "timestamp": "2026-06-15T07:55:20.140Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 4/20: accepted=4, failed=0",
-    "timestamp": "2026-06-13T08:28:56.516Z"
+    "message": "[vote.js] tx.wait time: 4.83 ms, block=9",
+    "timestamp": "2026-06-15T07:55:20.145Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 5/20: accepted=5, failed=0",
-    "timestamp": "2026-06-13T08:28:57.744Z"
+    "message": "Vote 1/10: accepted=1, failed=0",
+    "timestamp": "2026-06-15T07:55:20.145Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 6/20: accepted=6, failed=0",
-    "timestamp": "2026-06-13T08:28:58.957Z"
+    "message": "[vote.js] IPFS upload time: 48.91 ms, cid=QmPvZ2nhaXsG4a77A8aaoiqE7vzgvEjpT9b3Ewr5q9pY61",
+    "timestamp": "2026-06-15T07:55:21.421Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 7/20: accepted=7, failed=0",
-    "timestamp": "2026-06-13T08:29:00.218Z"
+    "message": "[vote.js] Local verify time: 27.14 ms",
+    "timestamp": "2026-06-15T07:55:21.450Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 8/20: accepted=8, failed=0",
-    "timestamp": "2026-06-13T08:29:01.495Z"
+    "message": "[vote.js] submitVote sent: 18.98 ms, hash=0xace198337bf8cf1f595f0982c398fa7f7c66efa621bafc281ab79a85cb93b3b1",
+    "timestamp": "2026-06-15T07:55:21.468Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 9/20: accepted=9, failed=0",
-    "timestamp": "2026-06-13T08:29:02.701Z"
+    "message": "[vote.js] tx.wait time: 4.83 ms, block=10",
+    "timestamp": "2026-06-15T07:55:21.472Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 10/20: accepted=10, failed=0",
-    "timestamp": "2026-06-13T08:29:03.588Z"
+    "message": "Vote 2/10: accepted=2, failed=0",
+    "timestamp": "2026-06-15T07:55:21.472Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 11/20: accepted=11, failed=0",
-    "timestamp": "2026-06-13T08:29:04.271Z"
+    "message": "[vote.js] IPFS upload time: 40.27 ms, cid=QmUc2LrYVEe3Zdc7wfSFonCc4t3RHvqX4yJPAuSDmREb5C",
+    "timestamp": "2026-06-15T07:55:22.870Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 12/20: accepted=12, failed=0",
-    "timestamp": "2026-06-13T08:29:04.940Z"
+    "message": "[vote.js] Local verify time: 27.33 ms",
+    "timestamp": "2026-06-15T07:55:22.898Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 13/20: accepted=13, failed=0",
-    "timestamp": "2026-06-13T08:29:05.582Z"
+    "message": "[vote.js] submitVote sent: 29.21 ms, hash=0x16a6267f6102b7e85079683889c5aa4a568937c9de4b28a7fd97ca9d6b0166ac",
+    "timestamp": "2026-06-15T07:55:22.928Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 14/20: accepted=14, failed=0",
-    "timestamp": "2026-06-13T08:29:06.192Z"
+    "message": "[vote.js] tx.wait time: 2.59 ms, block=11",
+    "timestamp": "2026-06-15T07:55:22.930Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 15/20: accepted=15, failed=0",
-    "timestamp": "2026-06-13T08:29:06.832Z"
+    "message": "Vote 3/10: accepted=3, failed=0",
+    "timestamp": "2026-06-15T07:55:22.930Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 16/20: accepted=16, failed=0",
-    "timestamp": "2026-06-13T08:29:07.502Z"
+    "message": "[vote.js] IPFS upload time: 43.48 ms, cid=Qmb9VoaXoNAf79Qjb9cABkEXb956Yj6Bzhygtr3NZsxr9e",
+    "timestamp": "2026-06-15T07:55:24.436Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 17/20: accepted=17, failed=0",
-    "timestamp": "2026-06-13T08:29:08.133Z"
+    "message": "[vote.js] Local verify time: 44.55 ms",
+    "timestamp": "2026-06-15T07:55:24.486Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 18/20: accepted=18, failed=0",
-    "timestamp": "2026-06-13T08:29:08.823Z"
+    "message": "[vote.js] submitVote sent: 23.91 ms, hash=0xf475f4e1cc04a34f891b9d8664f37d756bef547d4a7e2997eadc85fa780c1398",
+    "timestamp": "2026-06-15T07:55:24.504Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 19/20: accepted=19, failed=0",
-    "timestamp": "2026-06-13T08:29:09.504Z"
+    "message": "[vote.js] tx.wait time: 2.07 ms, block=12",
+    "timestamp": "2026-06-15T07:55:24.507Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Vote 20/20: accepted=20, failed=0",
-    "timestamp": "2026-06-13T08:29:10.214Z"
+    "message": "Vote 4/10: accepted=4, failed=0",
+    "timestamp": "2026-06-15T07:55:24.507Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average end-to-end time: 1218.96 ms",
-    "timestamp": "2026-06-13T08:29:10.215Z"
+    "message": "[vote.js] IPFS upload time: 42.70 ms, cid=QmUnGi4sPCKqLWF4kB725wdgYzQSuqjQbJMffPPUh5JjGV",
+    "timestamp": "2026-06-15T07:55:25.845Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average witness time: 170.40 ms",
-    "timestamp": "2026-06-13T08:29:10.215Z"
+    "message": "[vote.js] Local verify time: 25.77 ms",
+    "timestamp": "2026-06-15T07:55:25.871Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Average proof generation time: 927.70 ms",
-    "timestamp": "2026-06-13T08:29:10.215Z"
+    "message": "[vote.js] submitVote sent: 15.98 ms, hash=0x092931c0b4bda12e8b6d3689d691e8a26c2add9f44d9f14738de40eed3f4d515",
+    "timestamp": "2026-06-15T07:55:25.887Z"
   },
   {
     "stage": "vote",
     "type": "stdout",
-    "message": "Voting finished. Submitted: 20, Failed: 0",
-    "timestamp": "2026-06-13T08:29:10.215Z"
+    "message": "[vote.js] tx.wait time: 5.20 ms, block=13",
+    "timestamp": "2026-06-15T07:55:25.892Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 5/10: accepted=5, failed=0",
+    "timestamp": "2026-06-15T07:55:25.893Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] IPFS upload time: 44.48 ms, cid=QmaYN47RYuat6rWLNyJWqhzoxpK4kHzTVJ9dw8KRvGABFn",
+    "timestamp": "2026-06-15T07:55:27.304Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] Local verify time: 24.85 ms",
+    "timestamp": "2026-06-15T07:55:27.329Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] submitVote sent: 16.58 ms, hash=0x3f1474f656531134eba250d54200d5966d795f0931a75d758a36c0316c1a1f11",
+    "timestamp": "2026-06-15T07:55:27.346Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] tx.wait time: 3.41 ms, block=14",
+    "timestamp": "2026-06-15T07:55:27.349Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 6/10: accepted=6, failed=0",
+    "timestamp": "2026-06-15T07:55:27.350Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] IPFS upload time: 49.22 ms, cid=QmbTJBVmEAUAHaaYxT6vbzhpnGRWx5ZGMxodoUwiG3oTwL",
+    "timestamp": "2026-06-15T07:55:28.707Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] Local verify time: 42.72 ms",
+    "timestamp": "2026-06-15T07:55:28.750Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] submitVote sent: 20.91 ms, hash=0x70bcf72367f6a8be9c76559c911453bdcc3763973dbc87bf0a9f5cf65e6322d5",
+    "timestamp": "2026-06-15T07:55:28.772Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] tx.wait time: 5.27 ms, block=15",
+    "timestamp": "2026-06-15T07:55:28.777Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 7/10: accepted=7, failed=0",
+    "timestamp": "2026-06-15T07:55:28.778Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] IPFS upload time: 37.63 ms, cid=QmcCYXNfW7qmJjKo8uo51dyU31HmLQG1j9Bb2w2NDrAWXg",
+    "timestamp": "2026-06-15T07:55:30.057Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] Local verify time: 26.75 ms",
+    "timestamp": "2026-06-15T07:55:30.084Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] submitVote sent: 14.00 ms, hash=0x6c045aa8eea87228f55c771faecc2f177941382e4e97e7273826de71e965c9e9",
+    "timestamp": "2026-06-15T07:55:30.098Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] tx.wait time: 5.01 ms, block=16",
+    "timestamp": "2026-06-15T07:55:30.103Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 8/10: accepted=8, failed=0",
+    "timestamp": "2026-06-15T07:55:30.104Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] IPFS upload time: 52.95 ms, cid=QmQigoE2c2JR4n7cga49A8EiWNHjB2MHY8CrKGQdvB7CSf",
+    "timestamp": "2026-06-15T07:55:31.355Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] Local verify time: 22.58 ms",
+    "timestamp": "2026-06-15T07:55:31.378Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] submitVote sent: 16.38 ms, hash=0xda4498632c1c3816b4e48b3628c41a20718d07341aae7ebf370fb2c80b33896a",
+    "timestamp": "2026-06-15T07:55:31.396Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] tx.wait time: 2.88 ms, block=17",
+    "timestamp": "2026-06-15T07:55:31.398Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 9/10: accepted=9, failed=0",
+    "timestamp": "2026-06-15T07:55:31.398Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] IPFS upload time: 44.85 ms, cid=QmSPzNZ8vbtJvZZifpG9RDEs6oZpFrqPg8iJizTfnFwXJh",
+    "timestamp": "2026-06-15T07:55:32.868Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] Local verify time: 21.52 ms",
+    "timestamp": "2026-06-15T07:55:32.890Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] submitVote sent: 17.15 ms, hash=0xd581d4564b95042d681650b659c639024d67e50b929756bffdef6cd4ddc269ba",
+    "timestamp": "2026-06-15T07:55:32.907Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "[vote.js] tx.wait time: 4.80 ms, block=18",
+    "timestamp": "2026-06-15T07:55:32.912Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Vote 10/10: accepted=10, failed=0",
+    "timestamp": "2026-06-15T07:55:32.913Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average end-to-end time: 1550.52 ms",
+    "timestamp": "2026-06-15T07:55:32.915Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average witness time: 195.32 ms",
+    "timestamp": "2026-06-15T07:55:32.915Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Average proof generation time: 1178.38 ms",
+    "timestamp": "2026-06-15T07:55:32.916Z"
+  },
+  {
+    "stage": "vote",
+    "type": "stdout",
+    "message": "Voting finished. Submitted: 10, Failed: 0",
+    "timestamp": "2026-06-15T07:55:32.916Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Valid votes: 20/20",
-    "timestamp": "2026-06-13T08:29:13.974Z"
+    "message": "Valid votes: 10/10",
+    "timestamp": "2026-06-15T07:55:33.651Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Total aggregation time: 851.16 ms",
-    "timestamp": "2026-06-13T08:29:13.974Z"
+    "message": "Total aggregation time: 822.46 ms",
+    "timestamp": "2026-06-15T07:55:33.652Z"
   },
   {
     "stage": "aggregation",
     "type": "stdout",
-    "message": "Aggregation published: 0xc6856ba1011d3b4ed273bf58874ab960b7a4fba8baf4c96a3eabd0464e97c041",
-    "timestamp": "2026-06-13T08:29:16.550Z"
+    "message": "Aggregation published: 0x6e65546107832e0f708826308b70a3f947ebea41b4c97ba2dd17b7968df33c18",
+    "timestamp": "2026-06-15T07:55:35.783Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Generating proof for Admin (Trustee 3)",
-    "timestamp": "2026-06-13T08:29:19.771Z"
+    "timestamp": "2026-06-15T07:55:39.023Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Partial decryption time for Admin (Trustee 3): 7364.66 ms",
-    "timestamp": "2026-06-13T08:29:26.670Z"
+    "message": "Partial decryption time for Admin (Trustee 3): 2563.12 ms",
+    "timestamp": "2026-06-15T07:55:40.980Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Generating proof for Trustee 1",
-    "timestamp": "2026-06-13T08:29:26.760Z"
+    "timestamp": "2026-06-15T07:55:41.052Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Partial decryption time for Trustee 1: 7809.18 ms",
-    "timestamp": "2026-06-13T08:29:27.115Z"
+    "message": "Partial decryption time for Trustee 1: 3118.92 ms",
+    "timestamp": "2026-06-15T07:55:41.536Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Threshold count: 2",
-    "timestamp": "2026-06-13T08:29:27.117Z"
+    "timestamp": "2026-06-15T07:55:41.541Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Tally time: 7819.59 ms",
-    "timestamp": "2026-06-13T08:29:37.840Z"
+    "message": "Tally time: 2966.91 ms",
+    "timestamp": "2026-06-15T07:55:46.915Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Final results: [ { candidateId: 1, votes: 20 }, { candidateId: 2, votes: 20 } ]",
-    "timestamp": "2026-06-13T08:29:37.842Z"
+    "message": "Final results: [ { candidateId: 1, votes: 4 }, { candidateId: 2, votes: 6 } ]",
+    "timestamp": "2026-06-15T07:55:46.916Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Candidate 1: 20 votes",
-    "timestamp": "2026-06-13T08:29:37.842Z"
+    "message": "Candidate 1: 4 votes",
+    "timestamp": "2026-06-15T07:55:46.916Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
-    "message": "Candidate 2: 20 votes",
-    "timestamp": "2026-06-13T08:29:37.842Z"
+    "message": "Candidate 2: 6 votes",
+    "timestamp": "2026-06-15T07:55:46.917Z"
   },
   {
     "stage": "tally",
     "type": "stdout",
     "message": "Results revealed on-chain.",
-    "timestamp": "2026-06-13T08:29:37.852Z"
+    "timestamp": "2026-06-15T07:55:46.933Z"
   }
 ]
